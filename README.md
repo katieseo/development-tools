@@ -1,40 +1,43 @@
-Frontend Tools
-==============
+#### Frontend Tools
 
-### CSS
+##### CSS
 
 - [Can I Use](http://caniuse.com/)
 - [Gradient Generator](http://colorzilla.com/gradient-editor/)
 - [Responsive Design Testing](http://mattkersley.com/responsive/)
 
 
-### Fonts
+##### Fonts
 
 - [Google Fonts](https://www.google.com/fonts)
 - [Webfont Generator](http://www.fontsquirrel.com/tools/webfont-generator)
 - [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
 
 
-### Images
+##### Images
 
 - [TinyPNG](https://tinypng.com/)
 - [Find Icons](http://findicons.com/)
 
 
-### Responsive Design
+##### Responsive Design
 
 - [Adobe Edge Inspect](http://html.adobe.com/edge/inspect/)
 - [Responsive Image Polyfill](https://github.com/scottjehl/picturefill)
 
 
-### Code Inspection
+##### Code Inspection
 
 - [HTML Validator](http://validator.w3.org/)
 - [CSS Lint](http://csslint.net/)
 - [JS Hint](http://www.jshint.com/)
 
 
-### Libraries
+##### JavaScript
+- [RegExr online tool](http://www.regexr.com/)
+- [Jasmine](http://jasmine.github.io/)
+
+##### Libraries
 
 - [Modernizr](http://modernizr.com/)
 - [HTML5 Boilerplate](http://html5boilerplate.com/)
@@ -44,19 +47,19 @@ Frontend Tools
 - [Google Hosted Libraries](https://developers.google.com/speed/libraries/devguide)
 
 
-### Frameworks
+##### Frameworks
 
 - [Foundation](http://foundation.zurb.com/)
 - [Bootstrap](http://getbootstrap.com/)
 
 
-### Debugging Tools
+##### Debugging Tools
 
 - [Chrome DevTools](https://developers.google.com/chrome-developer-tools/)
 - [Firebug](http://getfirebug.com/)
 
 
-### Chrome Extensions
+##### Chrome Extensions
 
 - [Collorzilla](https://chrome.google.com/webstore/detail/colorzilla/bhlhnicpbhignbdhedgjhgdocnmhomnp)
 - [ruul. Screen ruler](https://chrome.google.com/webstore/detail/ruul-screen-ruler/mlbnpnlmfngmlcmkhjpbfokdphfehhjj)
@@ -65,7 +68,7 @@ Frontend Tools
 - [Clear Cache](https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn)
 
 
-### Sublime Text Plugins
+##### Sublime Text Plugins
 
 - [Package control](https://sublime.wbond.net/)
 - SideBar Enhancements
