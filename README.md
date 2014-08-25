@@ -11,6 +11,7 @@
 
 - [Google Fonts](https://www.google.com/fonts)
 - [Webfont Generator](http://www.fontsquirrel.com/tools/webfont-generator)
+- [IcoMoon](https://icomoon.io/)
 - [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
 
 
@@ -46,7 +47,6 @@
 - [AngularJS](https://angularjs.org/)
 - [Google Hosted Libraries](https://developers.google.com/speed/libraries/devguide)
 
-
 ##### Frameworks
 
 - [Foundation](http://foundation.zurb.com/)
@@ -66,6 +66,7 @@
 - [Awesome Screenshot](https://chrome.google.com/webstore/detail/awesome-screenshot-captur/alelhddbbhepgpmgidjdcjakblofbmce)
 - [Window Resizer](https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh)
 - [Clear Cache](https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn)
+- [PageSpeed Insights](https://chrome.google.com/webstore/detail/pagespeed-insights-by-goo/gplegfbjlmmehdoakndmohflojccocli)
 
 
 ##### Sublime Text Plugins

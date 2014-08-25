@@ -36,5 +36,5 @@ http://www.quirksmode.org/mobile/viewports2.html
 
 
 ##### screen.width / height
-> Total size of the user’s screen.
+> Total size of the user's screen.
 > Measured in Device pixels (CSS pixels in IE7, 8)
