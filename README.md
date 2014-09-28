@@ -25,6 +25,7 @@
 
 - [Adobe Edge Inspect](http://html.adobe.com/edge/inspect/)
 - [Responsive Image Polyfill](https://github.com/scottjehl/picturefill)
+- [Debounced Resize](https://github.com/louisremi/jquery-smartresize)
 
 
 ##### Code Inspection
@@ -35,22 +36,28 @@
 
 
 ##### JavaScript
+
 - [RegExr online tool](http://www.regexr.com/)
 - [Jasmine](http://jasmine.github.io/)
 
-##### Libraries
 
+##### Frameworks & Libraries
+
+- [Google Hosted Libraries](https://developers.google.com/speed/libraries/devguide)
+- [Foundation](http://foundation.zurb.com/)
+- [Bootstrap](http://getbootstrap.com/)
 - [Modernizr](http://modernizr.com/)
 - [HTML5 Boilerplate](http://html5boilerplate.com/)
 - [Normalize.css](http://necolas.github.io/normalize.css/)
 - [jQuery](http://jquery.com/)
 - [AngularJS](https://angularjs.org/)
-- [Google Hosted Libraries](https://developers.google.com/speed/libraries/devguide)
+- [Yeoman](http://yeoman.io/)
 
-##### Frameworks
 
-- [Foundation](http://foundation.zurb.com/)
-- [Bootstrap](http://getbootstrap.com/)
+##### Plugins
+
+- [Magnific Popup](http://dimsemenov.com/plugins/magnific-popup/)
+- [slick slider](http://kenwheeler.github.io/slick/)
 
 
 ##### Debugging Tools
@@ -78,3 +85,17 @@
 - Prefixr
 - JSLint
 - Sublime Linter
+
+
+##### Podcast
+
+- [ShopTalk](http://shoptalkshow.com/)
+- [JavaScript Jabber](http://javascriptjabber.com/)
+- [Adventures in Angular](http://devchat.tv/adventures-in-angular/)
+
+##### News Letters
+
+- [Smashing Newsletter](http://www.smashingmagazine.com/the-smashing-newsletter/)
+- [Web Design Weekly](http://web-design-weekly.com/)
+- [JavaScript Weekly](http://javascriptweekly.com/)
+- [ng-newsletter](http://www.ng-newsletter.com/)
