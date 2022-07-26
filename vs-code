@@ -13,3 +13,5 @@ debug JS in Visual Studio Code:
       "webRoot": "${workspaceFolder}"
     }
   ]
+  
+  * Press green play button next to Check site dropdown
