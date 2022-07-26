@@ -1,0 +1,15 @@
+debug JS in Visual Studio Code:
+
+
+* Open with Live Server 
+* create a launch.json file (or find in .vscode folder)
+
+"configurations": [
+    {
+      "name": "Check site",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5501/src/index.html", // live address
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
