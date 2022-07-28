@@ -1,7 +1,7 @@
 Lesson 1
 Iterations
 
-  1. BinaryGap [Easy]
+  1. BinaryGap
   >> 
 
 ==================
@@ -9,10 +9,10 @@ Iterations
 Lesson 2
 Arrays
 
-  1. CyclicRotation [Easy]
+  1. CyclicRotation
   https://app.codility.com/demo/results/trainingXA4QZT-V3V/
 
-  2. OddOccurrencesInArray [Easy]
+  2. OddOccurrencesInArray
   https://app.codility.com/demo/results/trainingEV55ZK-7PE/
 
 ==================
@@ -20,5 +20,8 @@ Arrays
 Lesson 3
 Time Complexity
 
-  1. FrogJmp [Easy]
+  1. FrogJmp
   https://app.codility.com/demo/results/trainingGH4V6U-2QW/
+  
+  2. PermMissingElem
+  https://app.codility.com/demo/results/trainingWNHSC3-BRU/
