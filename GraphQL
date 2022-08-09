@@ -1,0 +1,219 @@
+https://www.howtographql.com/
+
+Core Concepts
+
+1. The Schema Definition Language (SDL)
+   GraphQL has its own type system that’s used to define the schema of an API.
+   The syntax for writing schemas is called Schema Definition Language (SDL).
+    
+    type Person {
+      name: String!
+      age: Int!
+      posts: [Post!]!
+    }
+    
+    type Post {
+      title: String!
+      author: Person!
+    }
+    
+2. Fetching Data with Queries 
+   it’s completely flexible and lets the client decide what data is actually needed.
+   That means that the client needs to send more information to the server to express its data needs - 
+   this information is called a query.
+
+    {
+      allPersons(last: 2) {  //root field
+        name                 //payload
+        age
+        post {
+          title
+        }
+      }
+    }
+
+
+3. Writing Data with Mutations
+   Next to requesting information from a server, the majority of applications also need some way of making changes 
+   to the data that’s currently stored in the backend. With GraphQL, these changes are made using so-called mutations
+
+   There generally are three kinds of mutations:
+    - createing
+    - updating
+    - deleting
+    
+      mutation {
+        createPerson(name: "Bob", age: 36) {
+          name
+          age
+        }    
+      }
+
+
+4. Realtime updates with Subscriptions
+    Another important requirement for many applications today is to have a realtime connection to the server 
+    in order to get immediately informed about important events. 
+    For this use case, GraphQL offers the concept of subscriptions.
+
+    subscription {
+      newPerson {
+        name
+        age
+      }
+    }
+    
+    
+5. Defining a Schema
+    The schema is one of the most important concepts when working with a GraphQL API. 
+    It specifies the capabilities of the API and defines how clients can request the data. 
+    It is often seen as a contract between the server and client.
+    
+    
+    The Query, Mutation, and Subscription types are the entry points for the requests sent by the client.
+    
+    type Query {
+      allPersons(last: Int): [Person!]!
+      allPosts(last: Int): [Post!]!
+    }
+
+    type Mutation {
+      createPerson(name: String!, age: Int!): Person!
+      updatePerson(id: ID!, name: String!, age: String!): Person!
+      deletePerson(id: ID!): Person!
+    }
+
+    type Subscription {
+      newPerson: Person!
+    }
+
+    type Person {
+      id: ID!
+      name: String!
+      age: Int!
+      posts: [Post!]!
+    }
+
+    type Post {
+      title: String!
+      author: Person!
+    }
+    
+    
+    
+//////////
+Getting Started
+//////////
+
+Frontend
+
+1. Creating the app
+
+    npx create-react-app my-app
+    cd my-app
+    npm start
+
+2. Prepare Styling
+
+3. Install Apollo Client
+
+    npm install @apollo/client graphql
+
+4. Configure ApolloClient
+    
+    index.js
+    
+    // 1
+    import {
+      ApolloProvider,
+      ApolloClient,
+      createHttpLink,
+      InMemoryCache
+    } from '@apollo/client';
+
+    // 2 create the httpLink that will connect our ApolloClient instance with the GraphQL API
+    // The GraphQL server will be running on http://localhost:4000.
+    const httpLink = createHttpLink({
+      uri: 'http://localhost:4000'
+    });
+
+    // 3
+    const client = new ApolloClient({
+      link: httpLink,
+      cache: new InMemoryCache()
+    });
+
+    // 4
+    ReactDOM.render(
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>,
+      document.getElementById('root')
+    );
+
+ 
+ Backend
+ 
+ 1. Downloading the Server Code
+
+ curl https://codeload.github.com/howtographql/react-apollo/tar.gz/starter | tar -xz --strip=1 react-apollo-starter/server
+ 
+ now have a new directory called 'server'
+ 
+ main components:
+  - prisma: Prisma Client is used to access the database in our GraphQL resolvers
+      - schema.prisma: defines our data model for the project. define the shape of our databases tables and the relations between them
+      - dev.db is SQLite database that will be used to store and retrieve data for this tutorial
+  - src: holds the source files for our GraphQL server
+      - schema.graphql: contains our application schema *********
+      - resolvers: resolver funnctions
+      = index.js : entry point for our GraphQL server
+
+
+2. Creating a Database and Generating Prisma Client
+  
+  * install the dependencies
+  cd server
+  npm install prisma --save-dev
+  
+  npx prisma generate
+  
+3. Exploring the server
+      
+  npm run dev // start the server
+  
+  http://localhost:4000/
+  
+
+
+//////////
+Queries: Loading Links
+//////////
+
+import { useQuery, gql } from '@apollo/client';
+
+const FEED_QUERY = gql`
+  {
+    feed {
+      id
+      links {
+        id
+        createdAt
+        url
+        description
+      }
+    }
+  }
+`
+;
+
+const { data } = useQuery(FEED_QUERY);
+
+
+ 
+//////////
+Mutations: Creating Links
+//////////
+ 
+ 
+    
+    
