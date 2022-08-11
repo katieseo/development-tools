@@ -62,13 +62,13 @@
 
 ##### Chrome Extensions
 
+- [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 - [Collorzilla](https://chrome.google.com/webstore/detail/colorzilla/bhlhnicpbhignbdhedgjhgdocnmhomnp)
 - [ruul. Screen ruler](https://chrome.google.com/webstore/detail/ruul-screen-ruler/mlbnpnlmfngmlcmkhjpbfokdphfehhjj)
 - [Awesome Screenshot](https://chrome.google.com/webstore/detail/awesome-screenshot-captur/alelhddbbhepgpmgidjdcjakblofbmce)
 - [Window Resizer](https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh)
 - [Clear Cache](https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn)
 - [PageSpeed Insights](https://chrome.google.com/webstore/detail/pagespeed-insights-by-goo/gplegfbjlmmehdoakndmohflojccocli)
-
 
 ##### VSCode Extensions
 
@@ -84,7 +84,7 @@
 
 ##### Podcast
 
-- [Syntax] https://syntax.fm/
+- [Syntax](https://syntax.fm/)
 - [Javascript Jabber](https://topenddevs.com/podcasts/javascript-jabber)
 - [ShopTalk](http://shoptalkshow.com/)
 
