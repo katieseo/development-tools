@@ -94,3 +94,8 @@
 - [Smashing Newsletter](http://www.smashingmagazine.com/the-smashing-newsletter/)
 - [JavaScript Weekly](http://javascriptweekly.com/)
 - [Web Design Weekly](http://web-design-weekly.com/)
+
+##### Bookmarks
+
+- https://github.com/alan2207/bulletproof-react
+
