@@ -98,4 +98,4 @@
 ##### Bookmarks
 
 - https://github.com/alan2207/bulletproof-react
-
+- https://www.toptal.com/utilities-tools
