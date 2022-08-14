@@ -1,0 +1,111 @@
+////----Variables
+$font-weight: 400
+
+
+
+////----Maps
+map-get
+
+  $font-weight: (
+    "regular": 400,
+    "bold": 600
+  );
+
+  div {
+    font-weight: map-get($font-weight, bold);
+  }
+  
+  
+////----Nesting
+  
+&
+
+//.main .main__container
+.main {
+  width: 80%;
+  
+  #{&}__container {
+    color: skyblue;
+
+    &:hover {
+      color: lightcoral;
+    }
+  }
+}
+
+
+
+////---- partials
+
+_reset.scss
+@import './resets';
+
+
+
+
+////---- functions (return value)
+
+@function weight($weight-name) {
+  @return map-get($font-weight, $weight-name)
+}
+
+
+.div {
+  font-weight: weight(bold);
+}
+
+
+
+/////---- Mixin (define styles)
+
+1)-------
+@mixin flex-center($direction) { //pass argument
+  align-items: center;
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+}
+
+.main {
+  @include flex-center(row);
+}
+
+2)-------
+@mixin theme($dark-theme: true){
+  @if $dark-theme {
+    background: darken(white, 100%);
+    color: lighten(black, 100%);
+  }
+}
+
+.dark {
+  @include theme($dark-theme: true)
+}
+
+3)-------
+@mixin mobile {
+  @media (min-width: 800px) {
+    @content
+  }
+}
+
+.main {
+  @include flex-center;
+  @include mobile {
+    flex-direction: column
+  }
+}
+
+
+
+////---- Extend
+.div {
+  @extend .main;
+}
+
+
+
+////---- Math Operations
+.main {
+  width: 50%-25%;
+}
