@@ -54,6 +54,27 @@ _reset.scss
   font-weight: weight(bold);
 }
 
+------
+
+@for $i from 1 through 5 {
+  .menu-nav__item:nth-child(#{$i}) {
+    transition-delay:  ($i * 0.1s) + 0.15s;
+  }
+}
+
+------
+
+@function set-text-color($color) {
+  @if (lightness($color) > 40%) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}
+
+a {
+  color: set-text-color($primary-color);
+}
 
 
 /////---- Mixin (define styles)
@@ -94,6 +115,26 @@ _reset.scss
   @include mobile {
     flex-direction: column
   }
+}
+
+------
+
+@mixin media-md {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@include media-md {
+  .home {
+    ....
+  }
+}
+
+------
+
+@mixin transition-ease {
+  transition: all 0.5s ease-in-out;
 }
 
 
