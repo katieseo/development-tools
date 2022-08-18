@@ -102,6 +102,6 @@
 
 ##### Installing
 
-npx create-react-app my-app --template typescript
-npm install react-router-dom@6
-npm install react-bootstrap bootstrap
+- npx create-react-app my-app --template typescript
+- npm install react-router-dom@6
+- npm install react-bootstrap bootstrap
