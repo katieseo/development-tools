@@ -104,4 +104,4 @@
 
 - npx create-react-app my-app --template typescript
 - npm install react-router-dom@6
-- npm install react-bootstrap bootstrap
+- npm install react-bootstrap bootstrap (import 'bootstrap/dist/css/bootstrap.min.css';)
