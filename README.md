@@ -100,7 +100,7 @@
 - https://github.com/alan2207/bulletproof-react
 - https://www.toptal.com/utilities-tools
 
-##### Installing
+##### npm package installation
 
 - npx create-react-app my-app --template typescript
 - npm install react-router-dom@6
