@@ -150,3 +150,47 @@ TypeScript-specific types:
 
 * Type variables and generic types
 
+
+
+********* Typescipt Generics
+[React]
+
+///**** Props, useState */
+
+interface Props {
+    name: string;
+}
+
+const Hello:React.FC<Props> = (props) => {
+    const [person] = useState<{age: number | null}>({age: 0})
+
+    return <div>Hello {props.name}!</div>
+}
+
+const Main = () => {
+    return <Hello name="John" />
+}
+
+
+///**** JSX generic */
+
+interface FormProps<T> {
+    values: T;
+    children: (values: T) => JSX.Element
+}
+
+const Form = <T extends {}>({values, children}: FormProps<T>) => {
+    return children(values)
+}
+
+const App = () => {
+return (
+    <>
+        <Form<{name: string | null}> values={{name:'John'}}>
+            {(values) => <div>{values.name}</div>}
+        </Form>
+    </>
+)}
+
+
+
