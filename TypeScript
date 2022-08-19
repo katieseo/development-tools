@@ -1,3 +1,139 @@
+React =============================================================================
+
+https://www.sitepoint.com/react-with-typescript-best-practices/
+
+//----------- [Components] 
+
+// Written as a function declaration
+function Heading(): React.ReactNode {
+  return <h1>My Website Heading</h1>
+}
+
+// Written as a function expression
+const OtherHeading: React.FC = () => <h1>My Website Heading</h1>
+
+//----------- [Props] 
+
+interface Props {
+  name: string;
+  color: string;
+}
+
+type OtherProps = {
+  name: string;
+  color: string;
+}
+
+// Notice here we're using the function declaration with the interface Props
+function Heading({ name, color }: Props): React.ReactNode {
+  return <h1>My Website Heading</h1>
+}
+
+// Notice here we're using the function expression with the type OtherProps
+const OtherHeading: React.FC<OtherProps> = ({ name, color }) =>
+  <h1>My Website Heading</h1>
+
+*
+“always use interface for public API’s definition when authoring a library or 3rd-party ambient type definitions.”
+“consider using type for your React Component Props and State, because it is more constrained.”
+
+* Other example
+
+type Props = {
+  /** color to use for the background */
+  color?: string;
+  /** standard children prop: accepts any valid React Node */
+  children: React.ReactNode;
+  /** callback function passed to the onClick handler*/
+  onClick: ()  => void;
+}
+
+const Button: React.FC<Props> = ({ children, color = 'tomato', onClick }) => {
+   return <button style={{ backgroundColor: color }} onClick={onClick}>{children}</button>
+}
+
+
+//----------- [Hooks] 
+type User = {
+  email: string;
+  id: string;
+}
+
+// the generic is the < >
+// the union is the User | null
+// together, TypeScript knows, "Ah, user can be User or null".
+const [user, setUser] = useState<User | null>(null);
+
+
+**
+
+type AppState = {};
+type Action =
+  | { type: "SET_ONE"; payload: string }
+  | { type: "SET_TWO"; payload: number };
+
+export function reducer(state: AppState, action: Action): AppState {
+  switch (action.type) {
+    case "SET_ONE":
+      return {
+        ...state,
+        one: action.payload // `payload` is string
+      };
+    case "SET_TWO":
+      return {
+        ...state,
+        two: action.payload // `payload` is number
+      };
+    default:
+      return state;
+  }
+}
+
+
+
+********* Typescipt Generics
+
+///**** Props, useState */
+
+interface Props {
+    name: string;
+}
+
+const Hello:React.FC<Props> = (props) => {
+    const [person] = useState<{age: number | null}>({age: 0})
+
+    return <div>Hello {props.name}!</div>
+}
+
+const Main = () => {
+    return <Hello name="John" />
+}
+
+
+///**** JSX generic */
+
+interface FormProps<T> {
+    values: T;
+    children: (values: T) => JSX.Element
+}
+
+const Form = <T extends {}>({values, children}: FormProps<T>) => {
+    return children(values)
+}
+
+const App = () => {
+return (
+    <>
+        <Form<{name: string | null}> values={{name:'John'}}>
+            {(values) => <div>{values.name}</div>}
+        </Form>
+    </>
+)}
+
+
+Basics ============================================================================
+
+
 https://2ality.com/2018/04/type-notation-typescript.html
 https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-typescript
 https://www.typescriptlang.org/play/
@@ -149,48 +285,4 @@ TypeScript-specific types:
     
 
 * Type variables and generic types
-
-
-
-********* Typescipt Generics
-[React]
-
-///**** Props, useState */
-
-interface Props {
-    name: string;
-}
-
-const Hello:React.FC<Props> = (props) => {
-    const [person] = useState<{age: number | null}>({age: 0})
-
-    return <div>Hello {props.name}!</div>
-}
-
-const Main = () => {
-    return <Hello name="John" />
-}
-
-
-///**** JSX generic */
-
-interface FormProps<T> {
-    values: T;
-    children: (values: T) => JSX.Element
-}
-
-const Form = <T extends {}>({values, children}: FormProps<T>) => {
-    return children(values)
-}
-
-const App = () => {
-return (
-    <>
-        <Form<{name: string | null}> values={{name:'John'}}>
-            {(values) => <div>{values.name}</div>}
-        </Form>
-    </>
-)}
-
-
 
