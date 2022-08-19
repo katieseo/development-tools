@@ -1,0 +1,40 @@
+
+1) Setup Project
+
+  1. npm i -g @aws-amplify/cli@4.24
+  [OR] sudo npm install -g @aws-amplify/cli --unsafe-perm=true
+
+  2. amplify configure
+
+  3. amplify init (environment name: prod)
+  
+2) Adding authentication with Cognito
+
+  1. amplify add auth
+  
+
+3) Create S3 bucket to store image
+
+  1. amplify add storage 
+    - access: both auth and guest
+    - Authenticated user: check create read delete
+    - guest user: only read
+    - Lambda Trigger : no
+    
+    
+4) Lambda functions to process book orders
+  *order:  1. charge user using stripe 2.create the order, link the order with book static request
+  *to handle these > use pipeline resolver in Appsink
+  
+    1. amplify add function
+      - function name: processPayment
+      - advnaced settings: N
+      
+    2. amplify add function
+      -function name: createOrder
+      
+   🗂️ amplify folder > backend > function
+
+
+5) Adding GraphQL API
+      
