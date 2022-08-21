@@ -163,4 +163,69 @@ Social Media
              
         />)}
     
+//////////------------------------------------------------------------
+
+////////Create
+
+import { DataStore } from '@aws-amplify/datastore';
+import { Post } from './models';
+
+await DataStore.save(
+    new Post({
+		"title": "Lorem ipsum dolor sit amet",
+		"comments": [],
+		"content": "Lorem ipsum dolor sit amet",
+		"author": "Lorem ipsum dolor sit amet",
+		"img":  /* Provide init commands */,
+		"liked": 1020
+	})
+);
+
+
+
+////////Update
+
+import { DataStore } from '@aws-amplify/datastore';
+import { Post } from './models';
+
+/* Models in DataStore are immutable. To update a record you must use the copyOf function
+ to apply updates to the item’s fields rather than mutating the instance directly */
+await DataStore.save(Post.copyOf(CURRENT_ITEM, item => {
+    // Update the values on {item} variable to update DataStore entry
+}));
+
+
+////////Delete
+import { DataStore } from '@aws-amplify/datastore';
+import { Post } from './models';
+
+const modelToDelete = await DataStore.query(Post, 123456789);
+DataStore.delete(modelToDelete);
+
+
+
+/////////Query
+import { DataStore } from '@aws-amplify/datastore';
+import { Post } from './models';
+
+
+const models = await DataStore.query(Post);
+console.log(models);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
