@@ -1,40 +1,166 @@
+Amplify Studio
+https://ui.docs.amplify.aws/
 
-1) Setup Project
 
-  1. npm i -g @aws-amplify/cli@4.24
-  [OR] sudo npm install -g @aws-amplify/cli --unsafe-perm=true
+1. setup data, Figma UI (modify SocialA)
 
-  2. amplify configure
+2. npm i aws-amplify @aws-amplify/ui-react
+    Local setup (pull) > front end & backend connection
 
-  3. amplify init (environment name: prod)
-  
-2) Adding authentication with Cognito
+3. index.js
+    import config from "./aws-exports";
+    import Amplify from "aws-amplify";
 
-  1. amplify add auth
-  
+    import { AmplifyProvider } from "@aws-amplify/ui-react";
+    import "@aws-amplify/ui-react/styles.css";
 
-3) Create S3 bucket to store image
+    Amplify.configure(config);
 
-  1. amplify add storage 
-    - access: both auth and guest
-    - Authenticated user: check create read delete
-    - guest user: only read
-    - Lambda Trigger : no
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(
+      <AmplifyProvider>
+        <App />
+      </AmplifyProvider>
+    );
     
+4. App.js
+    import PostCollection from "./ui-components/PostCollection";
+
+    function App() {
+      return (
+        <PostCollection />
+      );
+    }
     
-4) Lambda functions to process book orders
-  *order:  1. charge user using stripe 2.create the order, link the order with book static request
-  *to handle these > use pipeline resolver in Appsink
+5. index.css
+    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+    
+6. Pagination
+https://ui.docs.amplify.aws/react/components/collection
+
+  App.js
   
-    1. amplify add function
-      - function name: processPayment
-      - advnaced settings: N
+  function App() {
+    return <PostCollection isPaginated itemsPerPage={3} />;
+  }
+
+7. Overides
+  <PostCollection
+      isPaginated
+      itemsPerPage={3}
+      overrides={{
+        "Collection.SocialA[0]": {
+          overrides: {
+            "Flex.Flex[1].Text[0]": {
+              as: "a",
+              href: "http://console.aws.amazon.com",
+            },
+          },
+        },
+      }}
       
-    2. amplify add function
-      -function name: createOrder
+ 8. https://sandbox.amplifyapp.com/
+ 
+//////////------------------------------------------------------------
+
+Authentication
+
+  4. App.js
+    import { withAuthenticator } from "@aws-amplify/ui-react";
+    import PostCollection from "./ui-components/PostCollection";
+
+    function App({ signOut, user }) {
+      return (
+        <>
+          {user.attributes.email}
+          <button onClick={signOut}>Sing Out</button>
+          <PostCollection isPaginated itemsPerPage={3} />
+        </>
+      );
+    }
+
+    export default withAuthenticator(App, {
+      socialProviders: ["apple"],
+    });
+    
+  5. index.js
+      (theme)
       
-   🗂️ amplify folder > backend > function
+     const theme = {
+        name: 'pretty-princess',
+        tokens: {
+          colors: {
+            bakground: {
+              primary: {value: 'hotpink'}
+            }
+          }
+        }
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(
+        <AmplifyProvider theme={theme}>
+          <App />
+        </AmplifyProvider>
+      );
 
 
-5) Adding GraphQL API
+//////////------------------------------------------------------------
+
+Social Media
+
+ 1. Data=======
+    Post (id, content, postedAt[AWSDateTime], likeds[int])
+    User (profilePic[AWSURL], handle[string], name[string])
+    Post - Add relationship: Iser - One post to one User
+    
+    Fig========
+    SocialB
+    edit > Group and Rename to CardContent
+    
+    UI library: find SocialB [Configure] > tide data (Value: @ +:user.handle), (user name- prop: as, value: "a"| prop:href, value: '/users/',+:user.name)
+                cardContent (prop: onMouseEnter, Action: Modify.element.property, Element: CardContent, set prop: backgroundColor, to: "#000000")
+                            (prop: onMouseLeave, Action: Modify.element.property, Element: CardContent, set prop: backgroundColor, to: "transparent")
+                            
+ 4. import {DataStore} from 'aws-amplify'
+    import { Post, User } from './models'
+    import {useEffect, useState} from 'react'
+    import { SocialB } from './ui-components'
+    
+    function App(){
+      cosnt [posts, setPosts] = useState([])
+      const getPosts = async () => {
+        const data = await DataStore.query(Post)
+        setPosts(data)
+      }    
       
+      useEffect(()=>{
+        getPost()      
+      },[])
+    
+      return (
+        <div className='App'>
+          {posts.map(post => <SocialB post={post} user={post.User} key={post.id} />)}
+        </div>
+      )
+    }
+                
+7. overrides (like function)
+        {posts.map(post => <SocialB post={post} user={post.User} key={post.id}
+          overrides = {{
+            getPosts, //update dynamically
+            Share: {
+              onClick: async e => {
+                e.preventDefault()
+                const postToChange = await DataStore.query(Post, post.id)
+                await DataStore.save(Post.copyOf(postToChange, updated => {
+                  updated.likes += 1
+                } ))
+                getPosts //update dynamically
+              }
+            }
+          }}
+             
+        />)}
+    
+
