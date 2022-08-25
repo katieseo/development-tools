@@ -223,12 +223,12 @@ console.log(models);
 
 1) Setup Project
 
-  1. npm i -g @aws-amplify/cli@4.24
-  [OR] sudo npm install -g @aws-amplify/cli --unsafe-perm=true
+  1. curl -sL https://aws-amplify.github.io/amplify-cli/install | bash && $SHELL
 
-  2. amplify configure
+  2. amplify configure > browser login > terminal info > browser user setting > terminal add accessKey
 
   3. amplify init (environment name: prod)
+
 
 2) Adding authentication with Cognito
 
@@ -245,12 +245,14 @@ console.log(models);
 
 
 4) Lambda functions to process book orders
-  *order:  1. charge user using stripe 2.create the order, link the order with book static request
+  *order:  1. charge user using stripe 2.create the order and then link the order with book static request
   *to handle these > use pipeline resolver in Appsink
 
     1. amplify add function
+      - Lambda function
       - function name: processPayment
       - advnaced settings: N
+      - edit now? N
 
     2. amplify add function
       -function name: createOrder
@@ -258,8 +260,31 @@ console.log(models);
    🗂️ amplify folder > backend > function
 
 
-5) Adding GraphQL API
+5) Adding GraphQL API (frontend the react app can communicate with Appsink)
 
+	1. amplify add api
+		- GraphQL
+		
+		- default authorization type: ⭐ Amazon Cognito User Pool(Login user)
+		- Configure additional auth types? Yes
+		- authorization types to configure for the API: ⭐ API Key (guest user)
+		- Enter a description for the API Key: Guest user access to books
+		- Expire: 365
+		- Congifure conflict detection? N
+		- do you have an annotated GraphQL schema? N
+		- Do you want a quided schema creation? Yes
+		- What best describes your project: Single object with fields (e.g. "Todo" with ID, name. description)
+		- Do you wnat to edit the schema now? Yes
+	2. 🗂️ amplify > backend > api/mindfulbooks > edit schema.graphql
+	3. 🗂️ amplify > backend > / function / eidt codes
+	4. Fill up dependencies in the lambda functions
+		 🗂️ amplify > backend > / function / processPayment / index.js
+		 	const USER_POOL_ID = "<userpool_id>";
+			const stripe = require("stripe")("<strip_private_key>");
+			
+6) Create Cloud Resources (Userpool, S3 bucket, AppSync API(api category), DynamoDB Tables(as resolver), Lambda functions(pipeline resolvers)
+
+	1. amplify push
 
 
 
