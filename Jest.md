@@ -1,5 +1,6 @@
 ##### npm test -- --coverage
 
+> Always active code coverage 
 > package.json
 ```
 "scripts": {
