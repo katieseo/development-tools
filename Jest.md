@@ -1,22 +1,22 @@
-npm test -- --coverage
+##### npm test -- --coverage
 
-> package.json
-
+package.json
+```
 "scripts": {
     "test": "jest"
 },
 "jest": {
   "collectCoverage": true
 },
-
+```
 OR
-
+```
 "scripts": {
     "test": "jest --coverage"
 },
-
+```
 OR
-
+```
 "scripts": {
     "test": "jest"
 },
@@ -24,3 +24,4 @@ OR
   "collectCoverage": true,
   "coverageReporters": ["html"]
 },
+```
