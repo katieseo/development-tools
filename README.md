@@ -107,5 +107,3 @@
 - npm install react-bootstrap bootstrap (import 'bootstrap/dist/css/bootstrap.min.css';)
 - npm install node-sass
 - npm install framer-motion
-
-- npm i jest --save-dev
