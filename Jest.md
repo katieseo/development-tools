@@ -9,13 +9,13 @@
   "collectCoverage": true
 },
 ```
-OR
+or
 ```
 "scripts": {
     "test": "jest --coverage"
 },
 ```
-OR
+or
 ```
 "scripts": {
     "test": "jest"
