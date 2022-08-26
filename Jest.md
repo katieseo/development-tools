@@ -1,6 +1,6 @@
 ##### npm test -- --coverage
 
-package.json
+> package.json
 ```
 "scripts": {
     "test": "jest"
