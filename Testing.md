@@ -37,16 +37,16 @@ test('renders learn react link', () => {
 });
 ```
 ```
+onClick={handleClick}
+
+fireEvent.click(buttonEl);
+```
+```
 onChange={handleChange}
 
 const testValue = "test";
 fireEvent.change(idElem, { target: { value: testValue } });     <---input value
 expect(idElem.value).toBe(testValue);
-```
-```
-onClick={handleClick}
-
-fireEvent.click(buttonEl);
 ```
 
 #### Queries
