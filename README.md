@@ -105,6 +105,8 @@
 
 - npx create-react-app my-app --template typescript
 - npm install react-router-dom@6
+- npm install axios
+
 - npm install react-bootstrap bootstrap (import 'bootstrap/dist/css/bootstrap.min.css';)
 - npm install node-sass
 - npm install framer-motion
