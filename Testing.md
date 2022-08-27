@@ -1,9 +1,14 @@
-Wallaby.js (VS code extension)
+## Resources
+** Wallaby.js ** (VS code extension) 
+    - cmd+shift+p > Wallaby.js start
+    - right click > Wallaby.js Line Tests > Launch Coverage & Test Explorer
 
-https://jestjs.io/docs/expect
-
+Reaching DOM elem & Interect DOM elem:
 https://testing-library.com/docs/react-testing-library/intro/
-Core API / Queries / ByRole
+(Core API / Queries / ByRole)
+
+Test:
+https://jestjs.io/docs/expect
 
 https://www.w3.org/TR/html-aria/#docconformance
 Implicit ARIA semantics
@@ -12,36 +17,6 @@ Implicit ARIA semantics
 - React Testing Library
 - JEST
 - Test-driven development (TDD)
-
-
-## Jest
-#### npm test -- --coverage
-
-> Always active code coverage (package.json)
-```
-"scripts": {
-    "test": "jest"
-},
-"jest": {
-  "collectCoverage": true
-},
-```
-or
-```
-"scripts": {
-    "test": "jest --coverage"
-},
-```
-or
-```
-"scripts": {
-    "test": "jest"
-},
-"jest": {
-  "collectCoverage": true,
-  "coverageReporters": ["html"]
-},
-```
 
 
 ## React Testing
@@ -77,4 +52,35 @@ expect(elem.length).toEqual(3);
 
 const elem = screen.getByTitle('sum');
 expect(elem.textContent).toBe('5');
+```
+
+
+
+## Jest
+#### npm test -- --coverage
+
+> Always active code coverage (package.json)
+```
+"scripts": {
+    "test": "jest"
+},
+"jest": {
+  "collectCoverage": true
+},
+```
+or
+```
+"scripts": {
+    "test": "jest --coverage"
+},
+```
+or
+```
+"scripts": {
+    "test": "jest"
+},
+"jest": {
+  "collectCoverage": true,
+  "coverageReporters": ["html"]
+},
 ```
