@@ -9,16 +9,16 @@
     
     - right click > Wallaby.js Line Tests > Launch Coverage & Test Explorer
 
-Reaching DOM elem & Interect DOM elem:
+- Reaching DOM elem & Interect DOM elem:
 
 https://testing-library.com/docs/react-testing-library/intro/
 (Core API / Queries / ByRole)
 
-Test:
+- Test:
 
 https://jestjs.io/docs/expect
 
-Implicit ARIA semantics:
+- Implicit ARIA semantics:
 
 https://www.w3.org/TR/html-aria/#docconformance
 
@@ -37,9 +37,24 @@ test('renders learn react link', () => {
 });
 ```
 ```
-<a data-testid='my-test-id'>
+onChange={handleChange}
+
+const testValue = "test";
+fireEvent.change(idElem, { target: { value: testValue } });
+expect(idElem.value).toBe(testValue);
+```
+```
+onClick={handleClick}
+
+fireEvent.click(buttonEl);
+```
+
+#### Queries
+```
+<a data-testid='my-test-id'>mylink</a>
 
 const elem = screen.getByTestId('my-test-id')
+const el = screen.getByText('mylink') or /^mylink$/i
 ```
 ```
 <li></li>
@@ -59,7 +74,7 @@ const elem = screen.getByTitle('sum');
 expect(elem.textContent).toBe('5');
 ```
 
-#### More
+#### matchers
 ```
 .toBeDisabled();
 not.toHaveTextContent(/loading/i);
@@ -68,19 +83,6 @@ not.toHaveTextContent(/loading/i);
 style={{visibility: 'hidden'}}
 
 expect(errorMsgElem).not.toBeVisible();
-```
-
-```
-onChange={handleChange}
-
-const testValue = "test";
-fireEvent.change(idElem, { target: { value: testValue } });
-expect(idElem.value).toBe(testValue);
-```
-```
-onClick={handleClick}
-
-fireEvent.click(buttonEl);
 ```
 
 #### __mocks__
