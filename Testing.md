@@ -1,5 +1,5 @@
 ## Resources
-** Wallaby.js ** (VS code extension) 
+**Wallaby.js** (VS code extension) 
     - cmd+shift+p > Wallaby.js start
     - right click > Wallaby.js Line Tests > Launch Coverage & Test Explorer
 
