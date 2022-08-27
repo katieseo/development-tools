@@ -21,6 +21,7 @@ Implicit ARIA semantics
 
 
 ## React Testing
+#### Basic Examples
 
 ```
 import { render, screen } from '@testing-library/react';
@@ -55,7 +56,27 @@ const elem = screen.getByTitle('sum');
 expect(elem.textContent).toBe('5');
 ```
 
+#### More
+```
+style={{visibility: 'hidden'}}
 
+expect(errorMsgElem).not.toBeVisible();
+```
+
+```
+onChange={handleChange}
+
+const testValue = "test";
+fireEvent.change(idElem, { target: { value: testValue } });
+expect(idElem.value).toBe(testValue);
+```
+```
+onChange={handleChange}
+
+const testValue = "test";
+fireEvent.change(idElem, { target: { value: testValue } });
+expect(idElem.value).toBe(testValue);
+```
 
 ## Jest
 #### npm test -- --coverage
