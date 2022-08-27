@@ -58,6 +58,10 @@ expect(elem.textContent).toBe('5');
 
 #### More
 ```
+.toBeDisabled();
+not.toHaveTextContent(/loading/i);
+```
+```
 style={{visibility: 'hidden'}}
 
 expect(errorMsgElem).not.toBeVisible();
@@ -71,11 +75,9 @@ fireEvent.change(idElem, { target: { value: testValue } });
 expect(idElem.value).toBe(testValue);
 ```
 ```
-onChange={handleChange}
+onClick={handleClick}
 
-const testValue = "test";
-fireEvent.change(idElem, { target: { value: testValue } });
-expect(idElem.value).toBe(testValue);
+fireEvent.click(buttonEl);
 ```
 
 ## Jest
