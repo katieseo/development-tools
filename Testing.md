@@ -40,7 +40,7 @@ test('renders learn react link', () => {
 onChange={handleChange}
 
 const testValue = "test";
-fireEvent.change(idElem, { target: { value: testValue } });
+fireEvent.change(idElem, { target: { value: testValue } });     <---input value
 expect(idElem.value).toBe(testValue);
 ```
 ```
