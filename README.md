@@ -79,6 +79,7 @@
 - Prettier — Code formatter
 - ES7 React/Redux/GraphQL/React-Native snippets
 
+- Wallaby.js
 - Better Comments
 - Turbo Console Log
 
