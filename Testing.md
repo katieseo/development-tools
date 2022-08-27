@@ -10,14 +10,17 @@
     - right click > Wallaby.js Line Tests > Launch Coverage & Test Explorer
 
 Reaching DOM elem & Interect DOM elem:
+
 https://testing-library.com/docs/react-testing-library/intro/
 (Core API / Queries / ByRole)
 
 Test:
+
 https://jestjs.io/docs/expect
 
+Implicit ARIA semantics:
+
 https://www.w3.org/TR/html-aria/#docconformance
-Implicit ARIA semantics
 
 
 ## React Testing
@@ -78,6 +81,48 @@ expect(idElem.value).toBe(testValue);
 onClick={handleClick}
 
 fireEvent.click(buttonEl);
+```
+
+#### __mocks__
+create :folder: __mocks__/axios.js
+
+In filename.test.js
+```
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+
+jest.mock("axios", () =>({
+  __esModule: true,
+
+  default: {
+    get: () => ({
+      data: {id: 1, name: "Jane"}
+    })
+  }
+}))
+
+
+
+test("button text should be change", async () => {
+  render(<Login />);
+  const buttonEl = screen.getByRole("button");
+  
+  const nameEl = screen.getByPlaceholderText(/name/i);
+  const testValue = "test";
+  fireEvent.change(nameEl, { target: { value: testValue } });
+  
+  fireEvent.click(buttonEl);
+  
+  await waitFor(() => expect(buttonEl).not.toHaveTextContent(/loading/i));
+});
+
+
+text("", async () => {
+    .
+    .
+    const userText = await screen.findByText("Jane") **not getByText
+    expect(userText).toBeInTheDocument();
+})
+
 ```
 
 ## Jest
