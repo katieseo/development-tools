@@ -1,3 +1,7 @@
+- React Testing Library
+- JEST
+- Test-driven development (TDD)
+
 ## Resources
 **Wallaby.js** (VS code extension)
 
@@ -14,11 +18,6 @@ https://jestjs.io/docs/expect
 
 https://www.w3.org/TR/html-aria/#docconformance
 Implicit ARIA semantics
-
-
-- React Testing Library
-- JEST
-- Test-driven development (TDD)
 
 
 ## React Testing
