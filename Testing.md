@@ -84,7 +84,7 @@ fireEvent.click(buttonEl);
 ```
 
 #### __mocks__
-create :folder: __mocks__/axios.js
+create :file_folder: __ mocks __/axios.js
 
 In filename.test.js
 ```
