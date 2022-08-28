@@ -144,27 +144,30 @@ $grid-total: 12;
 $font-weight: 400
 
 #### Extend
+```
 .div {
   @extend .main;
 }
-
+```
 #### Math Operations
+```
 .main {
   width: 50%-25%;
 }
-
+```
 #### map-get
-  $font-weight: (
-    "regular": 400,
-    "bold": 600
-  );
+```
+$font-weight: (
+  "regular": 400,
+  "bold": 600
+);
 
-  div {
-    font-weight: map-get($font-weight, bold);
-  }
- 
+div {
+  font-weight: map-get($font-weight, bold);
+}
+```
 #### functions (return value)
-
+```
 @function weight($weight-name) {
   @return map-get($font-weight, $weight-name)
 }
@@ -172,9 +175,8 @@ $font-weight: 400
 .div {
   font-weight: weight(bold);
 }
-
-------
-
+```
+```
 @function set-text-color($color) {
   @if (lightness($color) > 40%) {
     @return #000;
@@ -186,3 +188,4 @@ $font-weight: 400
 a {
   color: set-text-color($primary-color);
 }
+```
