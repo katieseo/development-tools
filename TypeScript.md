@@ -287,7 +287,9 @@ return (
 
 
 https://2ality.com/2018/04/type-notation-typescript.html
+
 https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-typescript
+
 https://www.typescriptlang.org/play/
 
 
