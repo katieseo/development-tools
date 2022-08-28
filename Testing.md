@@ -116,16 +116,16 @@ expect(valueEl.textContent).toBe("True");
 ```
 render(<App />)
 ```
-This will work since other's are both child components of <App /> they are rendered automatically.
+This will work since both are child components of <App /> they are rendered automatically.
 Don't need this code
 ```
 render(
-      <App>
-        <Context.Provider>
-          <Comp />
-        </Context.Provider>
-      </App>
-    );
+    <App>
+      <Context.Provider>
+        <Comp />
+      </Context.Provider>
+    </App>
+);
 ```
 
 #### Controlled component Forms
