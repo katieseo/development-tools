@@ -88,7 +88,7 @@
 - npm install axios
 
 - npm install react-bootstrap bootstrap (import 'bootstrap/dist/css/bootstrap.min.css';)
-- npm install node-sass
+- npm install node-sass         > Watch Sass
 - npm install framer-motion
 
 ##### Podcast
