@@ -71,19 +71,6 @@
 - [CSSViewer](https://chrome.google.com/webstore/detail/cssviewer/ggfgijbpiheegefliciemofobhmofgce)
 - [PageSpeed Insights](https://chrome.google.com/webstore/detail/pagespeed-insights-by-goo/gplegfbjlmmehdoakndmohflojccocli)
 
-##### VSCode Extensions
-
-- Live Server
-- ESLint
-- JavaScript (ES6) code snippets
-- Prettier — Code formatter
-- ES7 React/Redux/GraphQL/React-Native snippets
-
-- Wallaby.js
-- Better Comments
-- Turbo Console Log
-
-
 ##### Podcast
 
 - [Syntax](https://syntax.fm/)
@@ -100,6 +87,18 @@
 
 - https://github.com/alan2207/bulletproof-react
 - https://www.toptal.com/utilities-tools
+
+##### VSCode Extensions
+
+- Live Server
+- ESLint
+- JavaScript (ES6) code snippets
+- Prettier — Code formatter
+- ES7 React/Redux/GraphQL/React-Native snippets
+
+- Wallaby.js
+- Better Comments
+- Turbo Console Log
 
 ##### VS Code Shortcuts
 - Delete line : Shift + CMD + K
