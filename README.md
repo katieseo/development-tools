@@ -102,15 +102,15 @@
 - https://www.toptal.com/utilities-tools
 
 ##### VS Code Shortcuts
-Delete line : Shift + CMD + K
-Move line: OPTION + up/down arrow key
-Go to line: CTRL + G
-Go back/forward(history): CTRL + -
+- Delete line : Shift + CMD + K
+- Move line: OPTION + up/down arrow key
+- Go to line: CTRL + G
+- Go back/forward(history): CTRL + -
 
-Start/end of word: OPTION + left/right arrow key
-Hightlight a word: SHIFT + OPTION + LEFT or RIGHT ARROW
+- Start/end of word: OPTION + left/right arrow key
+- Hightlight a word: SHIFT + OPTION + LEFT or RIGHT ARROW
 
-Start/end of line: CMD + left/right arrow key
+- Start/end of line: CMD + left/right arrow key
 
 ##### npm package installation
 
