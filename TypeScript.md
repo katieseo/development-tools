@@ -1,15 +1,5 @@
 ## React Typescript
 
-***
-Snippets: rh
-Code > Preferences > User Snippets
-typescriptreact.json
-
-https://gist.github.com/benawad/1e9dd01994f78489306fbfd6f7b01cd3
-
-***
-right click > peek definition | go to definition
-
 #### props
 ```
 interface Person {
@@ -147,12 +137,26 @@ interface Props {
 
 ```
 
+#### Tips
 
+***
+Snippets: rh
+Code > Preferences > User Snippets
+typescriptreact.json
+
+https://gist.github.com/benawad/1e9dd01994f78489306fbfd6f7b01cd3
+
+***
+right click > peek definition | go to definition
+
+
+## More for React
 
 https://www.sitepoint.com/react-with-typescript-best-practices/
 
-[Components] 
 
+Components
+```
 // Written as a function declaration
 function Heading(): React.ReactNode {
   return <h1>My Website Heading</h1>
@@ -160,9 +164,10 @@ function Heading(): React.ReactNode {
 
 // Written as a function expression
 const OtherHeading: React.FC = () => <h1>My Website Heading</h1>
+```
 
-[Props] 
-
+Props
+```
 interface Props {
   name: string;
   color: string;
@@ -181,13 +186,13 @@ function Heading({ name, color }: Props): React.ReactNode {
 // Notice here we're using the function expression with the type OtherProps
 const OtherHeading: React.FC<OtherProps> = ({ name, color }) =>
   <h1>My Website Heading</h1>
-
+```
 *
 “always use interface for public API’s definition when authoring a library or 3rd-party ambient type definitions.”
 “consider using type for your React Component Props and State, because it is more constrained.”
 
-* Other example
-
+Other example
+```
 type Props = {
   /** color to use for the background */
   color?: string;
@@ -200,9 +205,10 @@ type Props = {
 const Button: React.FC<Props> = ({ children, color = 'tomato', onClick }) => {
    return <button style={{ backgroundColor: color }} onClick={onClick}>{children}</button>
 }
+```
 
-
-[Hooks] 
+Hooks
+```
 type User = {
   email: string;
   id: string;
@@ -212,7 +218,6 @@ type User = {
 // the union is the User | null
 // together, TypeScript knows, "Ah, user can be User or null".
 const [user, setUser] = useState<User | null>(null);
-
 
 **
 
@@ -237,13 +242,12 @@ export function reducer(state: AppState, action: Action): AppState {
       return state;
   }
 }
+```
 
+## Generics
 
-
-********* Typescipt Generics
-
-///**** Props, useState */
-
+#### Props, useState
+```
 interface Props {
     name: string;
 }
@@ -257,10 +261,10 @@ const Hello:React.FC<Props> = (props) => {
 const Main = () => {
     return <Hello name="John" />
 }
+```
 
-
-///**** JSX generic */
-
+#### JSX generic
+```
 interface FormProps<T> {
     values: T;
     children: (values: T) => JSX.Element
@@ -278,9 +282,9 @@ return (
         </Form>
     </>
 )}
+````
 
-
-Basics ============================================================================
+## Typescript basics
 
 
 https://2ality.com/2018/04/type-notation-typescript.html
@@ -288,16 +292,16 @@ https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-typescri
 https://www.typescriptlang.org/play/
 
 
-* Type annotations
+#### Type annotations
   type annotation: type expression
   let x: number;
 
 
-* Type inference
+#### Type inference
   TypeScript can often infer types
 
 
-* Specifying types
+#### Specifying types
 Static types for JavaScript’s dynamic types:
   -undefined, null
   -boolean, number, string
@@ -309,12 +313,12 @@ TypeScript-specific types:
   -Etc.
   
   
-* Type aliases
+#### Type aliases
   type Age = number;
   const age: Age = 82;
 
 
-* Arrays
+#### Arrays
 -lists
     1. let arr: number[] = []; (empty Array, so need help)
     2. let arr: Array<number> = [];
@@ -324,8 +328,7 @@ TypeScript-specific types:
     // %inferred-type: [string, number][]
     const entries = Object.entries({ a: 1, b: 2 });      // [[ 'a', 1 ], [ 'b', 2 ]]);
 
-
-* Function types
+#### Function types
 
     // we don’t need a type annotation here
     // %inferred-type: (num: number) => string
@@ -370,7 +373,7 @@ TypeScript-specific types:
       
       joinNumbers(1, 2, 3)
 
-* Union types
+#### Union types
     function getScore(numberOrString: number|string): number {
     }
     
@@ -378,7 +381,7 @@ TypeScript-specific types:
     }
         
 
-* Typing objects
+#### Typing objects
 - Records: A fixed number of properties that are known at development time. Each property can have a different type.
 - Dictionaries: An arbitrary number of properties whose names are not known at development time. One type per kind of key (mainly: string, symbol).
 
@@ -431,7 +434,6 @@ TypeScript-specific types:
     ////
     
     * Interfaces can also contain methods
-    
 
-* Type variables and generic types
+#### Type variables and generic types
 
