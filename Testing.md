@@ -74,7 +74,11 @@ const elem = screen.getByTitle('sum');
 expect(elem.textContent).toBe('5');
 ```
 
-#### matchers
+#### more matchers
+```
+.toBeGreaterThanOrEqual(3.5);
+.toBeLessThanOrEqual(4.5);
+```
 ```
 .toBeDisabled();
 not.toHaveTextContent(/loading/i);
@@ -85,49 +89,130 @@ style={{visibility: 'hidden'}}
 expect(errorMsgElem).not.toBeVisible();
 ```
 
-#### __mocks__
-create :file_folder: __ mocks __/axios.js
+#### useState
+```
+when state is coming from parent component:
+
+render(<App><Comp /></App>)
+```
+
+#### useReducer
+test initial state, reducers, and actions
+```
+export const SUCCESS = {
+  type: "SUCCESS",
+};
+
+expect(myReducer(initialState, SUCCESS)).toEqual({ myState: true });
+```
+then test the component
+```
+expect(valueEl.textContent).toBe("False");
+fireEvent.click(buttonEl);
+expect(valueEl.textContent).toBe("True");
+```
+
+#### useContext
+```
+render(<App />)
+```
+This will work since other's are both child components of <App /> they are rendered automatically.
+Don't need this code
+```
+render(
+      <App>
+        <Context.Provider>
+          <Comp />
+        </Context.Provider>
+      </App>
+    );
+```
+
+#### Controlled component Forms
+```
+<label htmlFor="username">Username:</label>
+<input type="text" id="username" placeholder="username" value={username} onChange={handleChange}/>
+
+const inputEl = screen.getByLabelText(/Username/i);
+const testValue = "test";
+
+fireEvent.change(inputEl, { target: { value: testValue } });
+```
+```
+<form data-testid="form" onSubmit={handleSubmit}>
+
+fireEvent.submit(formEl, {target: {text1: {value: 'Text' } } })
+```
+
+#### useEffect and API requests with axios
+
+create :file_folder and file: __ mocks __/axios.js
+
+In component file
+```
+const handleClick = async () => {
+    const { data } = await axios.get(
+      "https://jsonplaceholder.typicode.com/users/1"
+    );
+    setUser(data);
+  };
+```
+
 
 In filename.test.js
 ```
+import Comp from "./Comp";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
-jest.mock("axios", () =>({
+jest.mock("axios", () => ({
   __esModule: true,
-
   default: {
     get: () => ({
-      data: {id: 1, name: "Jane"}
-    })
-  }
-}))
+      data: { id: 1, name: "Leanne" },
+    }),
+  },
+}));
 
-
-
-test("button text should be change", async () => {
-  render(<Login />);
-  const buttonEl = screen.getByRole("button");
-  
-  const nameEl = screen.getByPlaceholderText(/name/i);
-  const testValue = "test";
-  fireEvent.change(nameEl, { target: { value: testValue } });
-  
-  fireEvent.click(buttonEl);
-  
-  await waitFor(() => expect(buttonEl).not.toHaveTextContent(/loading/i));
+describe("comp test", () => {
+  test("should return username", async () => {
+    render(<Comp />);
+    const buttonEl = screen.getByRole("button");
+    const usernameEl = screen.getByText(/^Username/i);
+    fireEvent.click(buttonEl);
+    await waitFor(() =>
+      expect(usernameEl.textContent).toBe("Username: Leanne")
+    );
+  });
 });
-
-
+```
+```
 text("", async () => {
     .
     .
     const userText = await screen.findByText("Jane") **not getByText
     expect(userText).toBeInTheDocument();
 })
-
 ```
 
 ## Jest
+#### Mock Function
+```
+test("should add 1,2 and give result 3", () => {
+  const v1 = 1;
+  const v2 = 2;
+  const mockFn = jest.fn().mockImplementation((a, b) => a + b);
+
+  expect(mockFn(v1, v2)).toBe(3);
+});
+```
+```
+test("should return 3", () => {
+  const mockFn = jest.fn().mockReturnValue(3);
+  expect(mockFn()).toBe(3);
+});
+```
+
+
 #### npm test -- --coverage
 
 > Always active code coverage (package.json)
