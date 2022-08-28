@@ -165,7 +165,7 @@ import Comp from "./Comp";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 jest.mock("axios", () => ({
-  __esModule: true,
+  __esModule: true,         <---import
   default: {
     get: () => ({
       data: { id: 1, name: "Leanne" },
