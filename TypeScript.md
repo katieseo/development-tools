@@ -1,4 +1,15 @@
 ## React Typescript
+
+***
+Snippets: rh
+Code > Preferences > User Snippets
+typescriptreact.json
+
+https://gist.github.com/benawad/1e9dd01994f78489306fbfd6f7b01cd3
+
+***
+right click > peek definition | go to definition
+
 #### props
 ```
 interface Person {
@@ -45,12 +56,23 @@ const inputRef = useRef<HTMLInputElement>(null);
 
 useReducer
 ```
+type Actions = 
+  | {type: 'add'; text: string;}
+  | {type: 'remove'; idx: number;};
+
+interface Todo {
+  text: string;
+  complete: boolean;
+}
+
 type State = Todo[];
 
-cosnt TodoReducer= (state:State, action:Action) => {
+cosnt TodoReducer= (state:State, action:Actions) => {
   switch (action.type) {
     case "add":
       return [...state, {text: action.text, complete: false}];
+    case "remove":
+      return state.filter((_, i) => action.idx !== i);  
     default:
       return state;
   }
@@ -60,6 +82,56 @@ export const ReducerEx: React.FC = () => {
   const [todos, dispatch] = useReducer(TodoReducer, []);
 }
 
+```
+
+#### render props
+```
+interface Props {
+  children: (
+    count: number, 
+    setCount: React.Dispatch<React.SetStateAction<number>>    <---- hover setCount and copy
+  ) => JSX.Element | null;
+}
+
+export const Counter: React.FC<Props> = ({children}) => {
+  const [count, setCount] = useState(0);
+  
+  return <div>{children(count, setCount)}</div>
+}
+
+in App
+
+<Counter>
+  {(count, setCount) => (
+    <>
+      {count}
+      <button onClick=>{() => setCount(count+1)} + </button>}
+    </>
+  )}
+</Counter>
+```
+OR
+```
+interface Props {
+  children: (data: {      <----data:
+    count: number, 
+    setCount: React.Dispatch<React.SetStateAction<number>> 
+  }) => JSX.Element | null;
+}
+
+return <div>{children({count, setCount})}</div>
+
+
+in App
+
+<Counter>
+  {({count, setCount}) => (  <----destructure
+    <>
+      {count}
+      <button onClick=>{() => setCount(count+1)} + </button>}
+    </>
+  )}
+</Counter>
 ```
 
 #### event
