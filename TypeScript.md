@@ -1,8 +1,85 @@
-React =============================================================================
+## React Typescript
+#### props
+```
+interface Person {
+  fName: string;
+  lName: string;
+}
+
+interface Props {
+  text? : string;
+  fn: (name: string) => void;
+  obj: {
+    title: string
+  }
+  person: Person
+}
+
+export const Comp: React.FC<Props> = () => {
+  return ()
+}
+```
+#### hooks
+useState
+```
+const [count, setCount] = useState<number | null>(3);
+
+
+interface TextNode {
+  text:string
+}  
+
+const [count, setCount] = useState<TextNode>({text: 'hey'});
+```
+
+useRef
+```
+const inputRef = useRef<>();
+<input ref={} />   <-- make {} empty, hover over ref and find <HTMLInputElement>, copy into useRef
+
+
+const inputRef = useRef<HTMLInputElement>(null);
+<input ref={inputRef} />
+
+```
+
+useReducer
+```
+type State = Todo[];
+
+cosnt TodoReducer= (state:State, action:Action) => {
+  switch (action.type) {
+    case "add":
+      return [...state, {text: action.text, complete: false}];
+    default:
+      return state;
+  }
+}
+
+export const ReducerEx: React.FC = () => {
+  const [todos, dispatch] = useReducer(TodoReducer, []);
+}
+
+```
+
+#### event
+```
+interface Props {
+  .
+  .
+  .
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+<input onChcnage={handleChange} />. <--- hover over onChange and copy (event: React.ChangeEvent<HTMLInputElement>)
+
+```
+
+
 
 https://www.sitepoint.com/react-with-typescript-best-practices/
 
-//----------- [Components] 
+[Components] 
 
 // Written as a function declaration
 function Heading(): React.ReactNode {
@@ -12,7 +89,7 @@ function Heading(): React.ReactNode {
 // Written as a function expression
 const OtherHeading: React.FC = () => <h1>My Website Heading</h1>
 
-//----------- [Props] 
+[Props] 
 
 interface Props {
   name: string;
@@ -53,7 +130,7 @@ const Button: React.FC<Props> = ({ children, color = 'tomato', onClick }) => {
 }
 
 
-//----------- [Hooks] 
+[Hooks] 
 type User = {
   email: string;
   id: string;
