@@ -30,19 +30,6 @@
 - [Find Icons](http://findicons.com/)
 
 
-##### Code Inspection
-
-- [HTML Validator](http://validator.w3.org/)
-- [CSS Lint](http://csslint.net/)
-- [JS Hint](http://www.jshint.com/)
-
-
-##### JavaScript
-
-- [RegExr online tool](http://www.regexr.com/)
-- [Jasmine](http://jasmine.github.io/)
-
-
 ##### Frameworks & Libraries
 
 - [Google Hosted Libraries](https://developers.google.com/speed/libraries)
@@ -70,23 +57,6 @@
 - [Clear Cache](https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn)
 - [CSSViewer](https://chrome.google.com/webstore/detail/cssviewer/ggfgijbpiheegefliciemofobhmofgce)
 - [PageSpeed Insights](https://chrome.google.com/webstore/detail/pagespeed-insights-by-goo/gplegfbjlmmehdoakndmohflojccocli)
-
-##### Podcast
-
-- [Syntax](https://syntax.fm/)
-- [Javascript Jabber](https://topenddevs.com/podcasts/javascript-jabber)
-- [ShopTalk](http://shoptalkshow.com/)
-
-##### News Letters
-
-- [Smashing Newsletter](http://www.smashingmagazine.com/the-smashing-newsletter/)
-- [JavaScript Weekly](http://javascriptweekly.com/)
-- [Web Design Weekly](http://web-design-weekly.com/)
-
-##### Bookmarks
-
-- https://github.com/alan2207/bulletproof-react
-- https://www.toptal.com/utilities-tools
 
 ##### VSCode Extensions
 
@@ -120,3 +90,20 @@
 - npm install react-bootstrap bootstrap (import 'bootstrap/dist/css/bootstrap.min.css';)
 - npm install node-sass
 - npm install framer-motion
+
+##### Podcast
+
+- [Syntax](https://syntax.fm/)
+- [Javascript Jabber](https://topenddevs.com/podcasts/javascript-jabber)
+- [ShopTalk](http://shoptalkshow.com/)
+
+##### News Letters
+
+- [Smashing Newsletter](http://www.smashingmagazine.com/the-smashing-newsletter/)
+- [JavaScript Weekly](http://javascriptweekly.com/)
+- [Web Design Weekly](http://web-design-weekly.com/)
+
+##### Bookmarks
+
+- https://github.com/alan2207/bulletproof-react
+- https://www.toptal.com/utilities-tools
