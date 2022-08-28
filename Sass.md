@@ -1,11 +1,129 @@
-////----Variables
+## 5 Sass features
+#### 1. Nesting (parent selector, media queries)
+
+```
+.main {
+  &-title {           -----> .main-title
+    color: aqua;
+  }
+
+  #{&}__container {   -----> .main .main__container
+    color: aqua;
+  }
+  
+  @media (min-width: 50rem) {
+    color: pink;      ----->  dont need to reselect .main {}
+  }
+}
+
+p {
+  &+& {               -----> p + p
+    margin-top: 1rem;
+  }
+}
+
+```
+#### 2. Mixins
+
+```
+@mixin media($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+main {
+  @include media("50rem") {
+    color: pink;
+  }
+}
+```
+```
+@use "sass:map";
+$breakpoints: (
+  small: 30rem,   //480px
+  medium: 48rem,  //768px
+  large: 64rem,   //1024px
+);
+
+@mixin media($key) {
+  $width: map.get($breakpoints, $key);
+
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+main {
+  @include media(large) {
+    color: pink;
+  }
+}
+```
+#### 3. Partials
+
+_reset.scss
+@import './resets';
+
+* check @use
+
+#### 4. Functions
+
+```
+color: rgba(aqua, 0.5);
+
+color: mix(aqua, black, 50%);
+```
+
+#### 5. Loops
+
+```
+@for $i from 1 through 5 {
+  .menu-nav-item:nth-child(#{$i}) {
+    transition-delay: ($i * 0.1s) + 0.15s;
+  }
+}
+```
+```
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+[class^="col-"] {
+  flex-basis: 100%;
+}
+
+$grid-total: 12;
+@media (min-width: 50rem) {
+  @for $i from 1 through $grid-total {
+    .col-#{$i} {
+      flex: 0 0 (100%/12) * $i;
+    }
+
+    .col-offset-#{$i} {
+      margin-left: (100%/12) * $i;
+    }
+  }
+}
+```
+
+## More
+
+#### Variables
 $font-weight: 400
 
+#### Extend
+.div {
+  @extend .main;
+}
 
+#### Math Operations
+.main {
+  width: 50%-25%;
+}
 
-////----Maps
-map-get
-
+#### map-get
   $font-weight: (
     "regular": 400,
     "bold": 600
@@ -14,52 +132,15 @@ map-get
   div {
     font-weight: map-get($font-weight, bold);
   }
-  
-  
-////----Nesting
-  
-&
-
-//.main .main__container
-.main {
-  width: 80%;
-  
-  #{&}__container {
-    color: skyblue;
-
-    &:hover {
-      color: lightcoral;
-    }
-  }
-}
-
-
-
-////---- partials
-
-_reset.scss
-@import './resets';
-
-
-
-
-////---- functions (return value)
+ 
+#### functions (return value)
 
 @function weight($weight-name) {
   @return map-get($font-weight, $weight-name)
 }
 
-
 .div {
   font-weight: weight(bold);
-}
-
-------
-
-@for $i from 1 through 5 {
-  .menu-nav__item:nth-child(#{$i}) {
-    transition-delay:  ($i * 0.1s) + 0.15s;
-  }
 }
 
 ------
@@ -77,7 +158,7 @@ a {
 }
 
 
-/////---- Mixin (define styles)
+#### More Mixin (define styles)
 
 1)-------
 @mixin flex-center($direction) { //pass argument
@@ -135,18 +216,4 @@ a {
 
 @mixin transition-ease {
   transition: all 0.5s ease-in-out;
-}
-
-
-
-////---- Extend
-.div {
-  @extend .main;
-}
-
-
-
-////---- Math Operations
-.main {
-  width: 50%-25%;
 }
