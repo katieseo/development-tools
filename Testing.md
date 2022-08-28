@@ -148,24 +148,30 @@ fireEvent.submit(formEl, {target: {text1: {value: 'Text' } } })
 
 create :file_folder and file: __ mocks __/axios.js
 
-In component file
+Comp.js
 ```
 const handleClick = async () => {
+    setLoading(true);
     const { data } = await axios.get(
       "https://jsonplaceholder.typicode.com/users/1"
     );
+    setLoading(false);
     setUser(data);
-  };
+};
+  
+<button onClick={handleClick}>
+    {loading ? "loading..." : "Get Username"}
+</button>
 ```
 
 
-In filename.test.js
+Comp.test.js
 ```
 import Comp from "./Comp";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 jest.mock("axios", () => ({
-  __esModule: true,         <---important
+  __esModule: true,
   default: {
     get: () => ({
       data: { id: 1, name: "Leanne" },
@@ -173,25 +179,25 @@ jest.mock("axios", () => ({
   },
 }));
 
-describe("comp test", () => {
-  test("should return username", async () => {
+describe("comp testing", () => {
+  test("should update button text", async () => {
     render(<Comp />);
     const buttonEl = screen.getByRole("button");
-    const usernameEl = screen.getByText(/^Username/i);
+    expect(buttonEl).toHaveTextContent(/Get Username/i);
     fireEvent.click(buttonEl);
-    await waitFor(() =>
-      expect(usernameEl.textContent).toBe("Username: Leanne")
-    );
+    expect(buttonEl).toHaveTextContent(/loading/i);
+    await waitFor(() => expect(buttonEl).not.toHaveTextContent(/loading/i));
+  });
+
+  test("should display username", async () => {
+    render(<Comp />);
+    const buttonEl = screen.getByRole("button");
+    fireEvent.click(buttonEl);
+    const username = await screen.findByText(/Leanne/);   <---- not getBy.
+    expect(username).toBeInTheDocument();
   });
 });
-```
-```
-text("", async () => {
-    .
-    .
-    const userText = await screen.findByText("Jane") **not getByText
-    expect(userText).toBeInTheDocument();
-})
+
 ```
 
 ## Jest
