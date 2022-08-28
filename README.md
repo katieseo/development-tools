@@ -71,7 +71,9 @@
 - Turbo Console Log
 
 ##### VS Code Shortcuts
-- Delete line : Shift + CMD + K
+- Go to the file: > CMD + p
+
+- Delete line : > Shift + CMD + K
 - Move line: OPTION + up/down arrow key
 - Go to line: CTRL + G
 - Go back/forward(history): CTRL + -
