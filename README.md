@@ -92,6 +92,7 @@
 - npm install react-bootstrap bootstrap (import 'bootstrap/dist/css/bootstrap.min.css';)
 - npm install node-sass         > Watch Sass
 - npm install framer-motion
+- npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 
 
 ##### Podcast
