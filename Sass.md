@@ -60,6 +60,50 @@ main {
   }
 }
 ```
+```
+@mixin color-scheme($text, $bg){
+  background-color: $bg;
+  color: $text;
+}
+
+@ex1 {
+  @include color-scheme(yellow, black);
+}
+
+@ex2 {
+  @include color-scheme(black, yellow);
+}
+```
+```
+@use 'sass:list';
+
+$scheme-default: $color-neutral-light, $color-primary;
+$scheme-secondary: $color-neutral-dark, $color-secondary;
+$scheme-accent: $color-neutral-dark, $color-secondary, $color-extra;
+
+@mixin color-scheme($text, $bg){
+  @if li.length($bg) == 1 {
+    background-color: $bg;
+  } @else {
+    background-image: linear-gradient(to right, $bg);
+  }
+  
+  color: $text;
+}
+
+@ex1 {
+  @include color-scheme($scheme-default ...);
+}
+
+@ex2 {
+  @include color-scheme($scheme-secondary ...);
+}
+
+@ex3 {
+  @include color-scheme(black, (white, yellow, purple));
+}
+```
+
 +++
 ```
 @mixin transition-ease {
