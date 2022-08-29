@@ -93,6 +93,8 @@
 - npm install node-sass         > Watch Sass
 - npm install framer-motion
 
+- npm install --legacy-peer-deps  <--- after copy package.json
+
 ##### Podcast
 
 - [Syntax](https://syntax.fm/)
