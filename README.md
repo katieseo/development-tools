@@ -93,6 +93,7 @@
 - npm install node-sass         > Watch Sass
 - npm install framer-motion
 - npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+- npm install formik --save
 
 
 ##### Podcast
