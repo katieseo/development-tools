@@ -85,7 +85,7 @@
 
 ##### npm package installation
 
-- npx create-react-app my-app --template typescript
+- npx create-react-app my-app --template typescript   <--- ./ to install in the current folder
 - npm install react-router-dom@6
 - npm install axios
 
