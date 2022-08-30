@@ -1,19 +1,19 @@
 ### Frontend Tools
 
-##### npm package installation
+##### package installation
 
 - npx create-react-app ./ --template redux-typescript
 - npx create-react-app ./ --template typescript
 - npm install react-router-dom@6
 - npm install axios
 
-- npm install react-bootstrap bootstrap (import 'bootstrap/dist/css/bootstrap.min.css';)
-- npm install node-sass         > Watch Sass
 - npm install framer-motion
 - npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 - npm install formik --save
 - npm install -S yup
 
+
+* Heroicons
 
 ##### Compatibility
 
