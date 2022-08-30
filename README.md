@@ -13,7 +13,7 @@
 - npm install -S yup
 
 
-* Heroicons
+| Heroicons
 
 ##### Compatibility
 
