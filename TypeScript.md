@@ -76,6 +76,19 @@ export const ReducerEx: React.FC = () => {
 
 #### render props
 ```
+type Props = {
+  children?: React.ReactNode;
+};
+
+export const Main = ({ children }: Props) => {
+  return (
+    <>
+      {children}
+    </>
+  );
+};
+```
+```
 interface Props {
   children: (
     count: number, 
