@@ -14,6 +14,8 @@
 - npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 - npm install formik --save
 - npm install -S yup
+- npm install react-datepicker --save
+- npm install --save @types/react-datepicker
 
 
 | Heroicons
