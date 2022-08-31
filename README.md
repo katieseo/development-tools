@@ -3,6 +3,9 @@
 ##### package installation
 
 - npx create-react-app ./ --template redux-typescript
+- yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react --dev
+- yarn add prettier eslint-config-prettier eslint-plugin-prettier --dev
+
 - npx create-react-app ./ --template typescript
 - npm install react-router-dom@6
 - npm install axios
