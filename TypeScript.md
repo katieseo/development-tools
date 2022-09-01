@@ -2,7 +2,7 @@
 
 #### props
 array with obj
-```
+```javascript
 type PropsT = {
     names: {
         first: string
