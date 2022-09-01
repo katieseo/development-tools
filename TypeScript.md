@@ -1,6 +1,7 @@
 ## React Typescript
 
 #### props
+array with obj
 ```
 type PropsT = {
     names: {
@@ -16,6 +17,45 @@ const Part = (props:PropsT) => {
 }
 const App = () => {
     return <Part names={[{first: 'Leanne', last: 'N'}, {first: 'Katie', last: 'S'}]} />
+}
+```
+click event
+```
+type Prop = {
+  handleClick: (event:React.MouseEvent<HTMLButtonElement>, name:number) => void
+}
+
+const Button = (props: Prop) => {
+  return <button onClick={(event)=>props.handleClick(event, 83)}>Click</button>
+}
+
+
+export default function App() {
+  return (
+    <div className="App">
+      <Button handleClick={(event, id)=>console.log(event.type, id)} />
+    </div>
+  );
+}
+```
+change event
+```
+type Prop = {
+  value: string
+  handleChange: (event:React.ChangeEvent)=>void
+}
+
+const Input = (props:Prop) => {
+  return <input type="text" value={props.value} onChange={props.handleChange} />
+}
+
+
+export default function App() {
+  return (
+    <div className="App">
+      <Input value="" handleChange={(event)=>console.log(event.target)} />
+    </div>
+  );
 }
 ```
 ```
