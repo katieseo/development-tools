@@ -20,7 +20,7 @@ const App = () => {
 }
 ```
 click event
-```
+```javascript
 type Prop = {
   handleClick: (event:React.MouseEvent<HTMLButtonElement>, name:number) => void
 }
@@ -39,10 +39,21 @@ export default function App() {
 }
 ```
 change event
+```javascript
+interface Props {
+  .
+  .
+  .
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+<input onChange={handleChange} />. <--- hover over onChange and copy (event: React.ChangeEvent<HTMLInputElement>)
+
 ```
+```javascript
 type Prop = {
   value: string
-  handleChange: (event:React.ChangeEvent)=>void
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>)=>void
 }
 
 const Input = (props:Prop) => {
@@ -59,7 +70,7 @@ export default function App() {
 }
 ```
 CSSProperties
-```
+```javascript
 type Prop = {
   styles?: React.CSSProperties
 }
@@ -83,7 +94,7 @@ Example.tsx
 
 > import {ExampleProps} from './Example.types'
 
-```
+```javascript
 interface Person {
   fName: string;
   lName: string;
@@ -127,7 +138,7 @@ const inputRef = useRef<HTMLInputElement>(null);
 ```
 
 useReducer
-```
+```javascript
 type Actions = 
   | {type: 'add'; text: string;}
   | {type: 'remove'; idx: number;};
@@ -157,7 +168,7 @@ export const ReducerEx: React.FC = () => {
 ```
 
 #### render props
-```
+```javascript
 type Props = {
   children?: React.ReactNode;
 };
@@ -170,7 +181,7 @@ export const Main = ({ children }: Props) => {
   );
 };
 ```
-```
+```javascript
 interface Props {
   children: (
     count: number, 
@@ -196,7 +207,7 @@ in App
 </Counter>
 ```
 OR
-```
+```javascript
 interface Props {
   children: (data: {      <----data:
     count: number, 
@@ -217,19 +228,6 @@ in App
     </>
   )}
 </Counter>
-```
-
-#### event
-```
-interface Props {
-  .
-  .
-  .
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-<input onChcnage={handleChange} />. <--- hover over onChange and copy (event: React.ChangeEvent<HTMLInputElement>)
-
 ```
 
 #### Tips
