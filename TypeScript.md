@@ -120,14 +120,21 @@ Example.tsx
 #### hooks
 useState (TS can infer the state type based on the initial value)
 ```javascript
-const [count, setCount] = useState<number | null>(3);
 
-
-interface TextNode {
-  text:string
+interface AuthUser {
+  name: string
+  email: string
 }  
 
-const [count, setCount] = useState<TextNode>({text: 'hey'});
+const [user, setUser] = useState<AuthUser | null>(null);
+.
+.
+.
+<p>{user?.name}
+
+OR -----
+const [user, setUser] = useState<AuthUser>({} as AuthUser);
+
 ```
 
 useRef
