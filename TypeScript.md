@@ -1,5 +1,27 @@
 ## React Typescript
 
+right click > peek definition | go to definition
+
+```
+“always use interface for public API’s definition when authoring a library or 3rd-party ambient type definitions.”
+“consider using type for your React Component Props and State, because it is more constrained.”
+```
+```
+interface car { door: number; color: string; }
+
+interface car { make: string; }
+
+interface car is now { door: number; color: string; make: string; }
+
+---
+
+type car = { color:string }
+
+type car = { make: string; }
+
+type car is now { make:string }
+```
+
 #### props
 array with obj
 ```javascript
@@ -96,8 +118,8 @@ Example.tsx
 
 
 #### hooks
-useState
-```
+useState (TS can infer the state type based on the initial value)
+```javascript
 const [count, setCount] = useState<number | null>(3);
 
 
@@ -109,7 +131,7 @@ const [count, setCount] = useState<TextNode>({text: 'hey'});
 ```
 
 useRef
-```
+```javascript
 const inputRef = useRef<>();
 <input ref={} />   <-- make {} empty, hover over ref and find <HTMLInputElement>, copy into useRef
 
@@ -147,6 +169,29 @@ export const ReducerEx: React.FC = () => {
   const [todos, dispatch] = useReducer(TodoReducer, []);
 }
 
+```
+```
+type AppState = {};
+type Action =
+  | { type: "SET_ONE"; payload: string }
+  | { type: "SET_TWO"; payload: number };
+
+export function reducer(state: AppState, action: Action): AppState {
+  switch (action.type) {
+    case "SET_ONE":
+      return {
+        ...state,
+        one: action.payload // `payload` is string
+      };
+    case "SET_TWO":
+      return {
+        ...state,
+        two: action.payload // `payload` is number
+      };
+    default:
+      return state;
+  }
+}
 ```
 
 #### render props
@@ -210,55 +255,6 @@ in App
     </>
   )}
 </Counter>
-```
-
-#### Tips
-
-right click > peek definition | go to definition
-
-
-## More for React
-
-```
-“always use interface for public API’s definition when authoring a library or 3rd-party ambient type definitions.”
-“consider using type for your React Component Props and State, because it is more constrained.”
-```
-
-Hooks
-```
-type User = {
-  email: string;
-  id: string;
-}
-
-// the generic is the < >
-// the union is the User | null
-// together, TypeScript knows, "Ah, user can be User or null".
-const [user, setUser] = useState<User | null>(null);
-
-**
-
-type AppState = {};
-type Action =
-  | { type: "SET_ONE"; payload: string }
-  | { type: "SET_TWO"; payload: number };
-
-export function reducer(state: AppState, action: Action): AppState {
-  switch (action.type) {
-    case "SET_ONE":
-      return {
-        ...state,
-        one: action.payload // `payload` is string
-      };
-    case "SET_TWO":
-      return {
-        ...state,
-        two: action.payload // `payload` is number
-      };
-    default:
-      return state;
-  }
-}
 ```
 
 ## Generics
