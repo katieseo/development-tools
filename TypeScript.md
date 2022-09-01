@@ -94,25 +94,7 @@ Example.tsx
 
 > import {ExampleProps} from './Example.types'
 
-```javascript
-interface Person {
-  fName: string;
-  lName: string;
-}
 
-interface Props {
-  text? : string;
-  fn: (name: string) => void;
-  obj: {
-    title: string
-  }
-  person: Person
-}
-
-export const Comp = (props:Props) => {
-  return ()
-}
-```
 #### hooks
 useState
 ```
