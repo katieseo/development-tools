@@ -2,6 +2,23 @@
 
 #### props
 ```
+type PropsT = {
+    names: {
+        first: string
+        last: string
+    }[]
+}
+
+const Part = (props:PropsT) => {
+    return (
+        <div>{props.names.map(n => n.first)}</div>
+    )
+}
+const App = () => {
+    return <Part names={[{first: 'Leanne', last: 'N'}, {first: 'Katie', last: 'S'}]} />
+}
+```
+```
 interface Person {
   fName: string;
   lName: string;
@@ -16,7 +33,7 @@ interface Props {
   person: Person
 }
 
-export const Comp: React.FC<Props> = () => {
+export const Comp = (props:Props) => {
   return ()
 }
 ```
