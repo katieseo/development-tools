@@ -139,15 +139,33 @@ const [user, setUser] = useState<AuthUser>({} as AuthUser);
 
 useRef
 ```javascript
-const inputRef = useRef<>();
-<input ref={} />   <-- make {} empty, hover over ref and find <HTMLInputElement>, copy into useRef
+const inputRef = useRef<HTMLInputElement>(null)
+
+useEffect(()=>{
+    inputRef.current?.focus()
+},[])
+
+return (
+    <div className="App">
+      <input type="text" ref={inputRef}/>
+    </div>
+);
 
 
-const inputRef = useRef<HTMLInputElement>(null);
-<input ref={inputRef} />
+OR
+
+const inputRef = useRef<HTMLInputElement>(null!).  <--- null!
+inputRef.current.focus()    <--- don't need ?
 
 ```
+```javascript
+mutable case:
 
+useRef<number | null>(null)
+
+if (intervalRef.current) window.clearInterval(intervalRef.current)
+
+```
 useReducer
 ```javascript
 type Actions = 
@@ -178,27 +196,34 @@ export const ReducerEx: React.FC = () => {
 
 ```
 ```
-type AppState = {};
-type Action =
-  | { type: "SET_ONE"; payload: string }
-  | { type: "SET_TWO"; payload: number };
+type State = {count: number, name: string}
 
-export function reducer(state: AppState, action: Action): AppState {
-  switch (action.type) {
-    case "SET_ONE":
-      return {
-        ...state,
-        one: action.payload // `payload` is string
-      };
-    case "SET_TWO":
-      return {
-        ...state,
-        two: action.payload // `payload` is number
-      };
-    default:
-      return state;
+  type Action = 
+    | {type: 'INCREMENT'; payload: number}
+    | {type: 'SETNAME'}
+ 
+  const initialState = {count: 0, name: ''};
+
+  const reducer = (state: State, action:Action) => {
+    switch(action.type){
+      case 'INCREMENT':
+        return {...state, count: state.count + action.payload}
+      case 'SETNAME':
+        return {...state, name: 'Leanne'}
+      default:
+        return state
+    }
   }
-}
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div className="App">
+      {state.count} {state.name}
+      <button onClick={()=>dispatch({type:"INCREMENT", payload: 10})}>increment count</button>
+      <button onClick={()=>dispatch({type: "SETNAME"})}>set name</button>
+    </div>
+  );
 ```
 
 #### render props
