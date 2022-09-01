@@ -214,14 +214,6 @@ in App
 
 #### Tips
 
-***
-Snippets: rh
-Code > Preferences > User Snippets
-typescriptreact.json
-
-https://gist.github.com/benawad/1e9dd01994f78489306fbfd6f7b01cd3
-
-***
 right click > peek definition | go to definition
 
 
@@ -229,57 +221,9 @@ right click > peek definition | go to definition
 
 https://www.sitepoint.com/react-with-typescript-best-practices/
 
-
-Components
-```
-// Written as a function declaration
-function Heading(): React.ReactNode {
-  return <h1>My Website Heading</h1>
-}
-
-// Written as a function expression
-const OtherHeading: React.FC = () => <h1>My Website Heading</h1>
-```
-
-Props
-```
-interface Props {
-  name: string;
-  color: string;
-}
-
-type OtherProps = {
-  name: string;
-  color: string;
-}
-
-// Notice here we're using the function declaration with the interface Props
-function Heading({ name, color }: Props): React.ReactNode {
-  return <h1>My Website Heading</h1>
-}
-
-// Notice here we're using the function expression with the type OtherProps
-const OtherHeading: React.FC<OtherProps> = ({ name, color }) =>
-  <h1>My Website Heading</h1>
 ```
 “always use interface for public API’s definition when authoring a library or 3rd-party ambient type definitions.”
 “consider using type for your React Component Props and State, because it is more constrained.”
-
-Other example
-```
-type Props = {
-  /** color to use for the background */
-  color?: string;
-  /** standard children prop: accepts any valid React Node */
-  children: React.ReactNode;
-  /** callback function passed to the onClick handler*/
-  onClick: ()  => void;
-}
-
-const Button: React.FC<Props> = ({ children, color = 'tomato', onClick }) => {
-   return <button style={{ backgroundColor: color }} onClick={onClick}>{children}</button>
-}
-```
 
 Hooks
 ```
