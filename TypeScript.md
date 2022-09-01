@@ -1,6 +1,6 @@
 ## React Typescript
 
-right click > peek definition | go to definition
+TIP: vs code - right click > peek definition | go to definition
 
 ```
 “always use interface for public API’s definition when authoring a library or 3rd-party ambient type definitions.”
