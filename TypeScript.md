@@ -58,6 +58,31 @@ export default function App() {
   );
 }
 ```
+CSSProperties
+```
+type Prop = {
+  styles?: React.CSSProperties
+}
+
+const Main = (props:Prop) => {
+  return <div style={props.styles}></div>
+}
+
+
+export default function App() {
+  return (
+    <Main styles={{background: 'black', padding: '1rem'}} />
+  );
+}
+```
+Example.types.ts
+
+> export type ExampleProps = {}
+
+Example.tsx
+
+> import {ExampleProps} from './Example.types'
+
 ```
 interface Person {
   fName: string;
