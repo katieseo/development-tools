@@ -62,7 +62,7 @@ https://ui.docs.amplify.aws/react/components/collection
       
  8. https://sandbox.amplifyapp.com/
  
-//////////------------------------------------------------------------
+---
 
 Authentication
 
