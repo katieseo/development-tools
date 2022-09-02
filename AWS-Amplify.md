@@ -64,10 +64,12 @@ import config from './aws-exports';
 Amplify.configure(config);
 
 ```
-
+```
+```
 	5. Add the authentication flow in App.js
 
-
+```
+```
 ```js
 import logo from "./logo.svg";
 import "@aws-amplify/ui-react/styles.css";
