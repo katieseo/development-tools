@@ -340,109 +340,97 @@ export const User = () => {
 
 ```
 
-
-#### render props
+#### Component Prop
 ```javascript
+==== App.tsx
+<Private isLoggedIn={true} component={Profile}  />
+
+==== Profile.tsx
+export type ProfileProps = {
+  name: string
+}
+
+export const Profile = ({name}:ProfileProps) => {
+  return <div>{name}</div>
+}
+
+==== Private.tsx
+import {Login} from './Login'
+import {ProfileProps} from './Profile' <--- import type for name prop to pass
+
 type Props = {
-  children?: React.ReactNode;
-};
+  isLoggedIn: boolean
+  component: React.ComponentType<ProfileProps> <--- add it here for name prop
+}
 
-export const Main = ({ children }: Props) => {
+export const Private = ({isLoggedIn, component:Component}:Props) => {
   return (
-    <>
-      {children}
-    </>
-  );
-};
+    isLoggedIn ? <Component name="Leanne" /> : <Login />
+  )
+}
+
 ```
+#### Generic Props
 ```javascript
-interface Props {
-  children: (
-    count: number, 
-    setCount: React.Dispatch<React.SetStateAction<number>>    <---- hover setCount and copy
-  ) => JSX.Element | null;
+=== App.tsx
+<List items={[1,2,3]} handleClick={(item) => console.log(item)} />
+
+=== List.tsx
+
+type Props<T> = {
+  items: T[]
+  handleClick: (value:T) => void
 }
 
-export const Counter: React.FC<Props> = ({children}) => {
-  const [count, setCount] = useState(0);
-  
-  return <div>{children(count, setCount)}</div>
+export const List = <T extends {}>({items, handleClick}:Props<T>) => {
+  return (
+    <div>
+      {items.map(item => (
+        <div onClick={()=>handleClick(item)}>{item}</div>
+      ))}
+    </div>
+  )
 }
 
-in App
+*examples:
+<T extends string | number>
+<T extends {id: number}>
 
-<Counter>
-  {(count, setCount) => (
-    <>
-      {count}
-      <button onClick=>{() => setCount(count+1)} + </button>}
-    </>
-  )}
-</Counter>
 ```
-OR
+
+#### Restricting Props
 ```javascript
-interface Props {
-  children: (data: {      <----data:
-    count: number, 
-    setCount: React.Dispatch<React.SetStateAction<number>> 
-  }) => JSX.Element | null;
+type RandomNumber = {
+    value: number
 }
 
-return <div>{children({count, setCount})}</div>
+type PositiveNumber = RandomNumber & {
+    isPositive: boolean
+    isNegative?: never
+    isZero?: never
+}
 
+type RandomNumberProps = PositiveNumber | NegativeNumber | Zero
 
-in App
-
-<Counter>
-  {({count, setCount}) => (  <----destructure
-    <>
-      {count}
-      <button onClick=>{() => setCount(count+1)} + </button>}
-    </>
-  )}
-</Counter>
 ```
 
-## Generics
+#### Template Literals and Exclude
+```javascript
+type HorizontalPosition = "Left" | "center" | "right"
+type VerticalPosition = "Top" | "center" | "bottom"
 
-#### Props, useState
+type ToastProps = {
+    position: `${HorizontalPosition}-${VerticalPosition}`
+}
+
+export const Toast = ({position}:ToastProps) => {
+    return <div>{position}</div>
+}
+
+*** exclude 'center-center'
+*** position: Exclude<`${HorizontalPosition}-${VerticalPosition}`, 'center-center'> | 'center'
+
 ```
-interface Props {
-    name: string;
-}
-
-const Hello:React.FC<Props> = (props) => {
-    const [person] = useState<{age: number | null}>({age: 0})
-
-    return <div>Hello {props.name}!</div>
-}
-
-const Main = () => {
-    return <Hello name="John" />
-}
-```
-
-#### JSX generic
-```
-interface FormProps<T> {
-    values: T;
-    children: (values: T) => JSX.Element
-}
-
-const Form = <T extends {}>({values, children}: FormProps<T>) => {
-    return children(values)
-}
-
-const App = () => {
-return (
-    <>
-        <Form<{name: string | null}> values={{name:'John'}}>
-            {(values) => <div>{values.name}</div>}
-        </Form>
-    </>
-)}
-````
 
 ## Typescript basics
 
