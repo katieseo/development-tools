@@ -1,10 +1,88 @@
 ## Amplify App
+1. Host App
+	1. Create a new project locally
+	2. Create a new repository and commit the code
+	3. @ Amplify console: Create a new app (or get started) > Select **Host Web App** ( previously Deploy, Deliver ), NOT develop or build
+	4. Set up Github workflow for building, deplying, and hosting > Save an deploy
+	5. Check deployed and live running app
+2. Intialize Local App
+	1. Insall the Amplify CLI
+	```sh
+	curl -sL https://aws-amplify.github.io/amplify-cli/install | bash && $SHELL
+	```
+	OR
+	```sh
+	npm install -g @aws-amplify/cli
+	```
+	
+	2. Configure the Amplify CLI
+	   : Amazon IAM (Identity and Access Management) enables you to manage users and user permissions in AWS
 
-1. Create a new project locally
-2. Create a new repository and commit the code
-3. AWS Amplify: Create a new app (or get started) > **Host Web App** ( previously Deploy, Deliver ), NOT develop or build
-4. Set up Github workflow for building, deplying, and hosting > Save an deploy
-5. Initialize local app
+	```sh
+	amplify configure
+	```
+	Press Enter to Continue in terminal, setup in the browser, continue add keys in terminal
+	
+	3. Deploy a back end and initialize the backend evironment locally
+	   @ Amplify console : 
+	   1. click Backkend environments > Get started
+	   2. Go back to the backend envorioment tab - click Launch Studio ( priviously : Open admin UI )
+	   3. Go back to the backend envorioment tab - open the **Local Setup instructions**
+	   4. Copy the command to the terminal > setup
+	   * To view the Amplify project in the dashboard
+	   ```sh
+	   amplify console
+	   ```
+3. Add Authentication
+	1. install the Amplify libraries
+	   ```sh
+	   npm install aws-amplify @aws-amplify/ui-react
+	   ```
+	2. Create the authentication service
+	   ```sh
+	   amplify add auth
+	   ```
+	3. Deploy the auathentication service
+	   ```sh
+	   amplify push --y
+	   ```
+	4. Configure the React project with Amplify resources
+```js
+** index.js
+
+import Amplify from 'aws-amplify';
+import config from './aws-exports';
+Amplify.configure(config);
+
+```
+	5. Add the authentication flow in App.js
+```js
+import logo from "./logo.svg";
+import "@aws-amplify/ui-react/styles.css";
+import {
+  withAuthenticator,
+  Button,
+  Heading,
+  Image,
+  View,
+  Card,
+} from "@aws-amplify/ui-react";
+
+function App({ signOut }) {
+  return (
+    <View className="App">
+      <Card>
+        <Image src={logo} className="App-logo" alt="logo" />
+        <Heading level={1}>We now have Auth!</Heading>
+      </Card>
+      <Button onClick={signOut}>Sign Out</Button>
+    </View>
+  );
+}
+
+export default withAuthenticator(App);
+
+```
 
 
 
@@ -227,10 +305,7 @@ console.log(models);
 
 
 
-//
-//
-//
-//==================================================================
+## Project
 
 1) Setup Project
 
