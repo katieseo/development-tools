@@ -117,6 +117,8 @@ Example.tsx
 > import {ExampleProps} from './Example.types'
 
 
+
+
 #### hooks
 useState (TS can infer the state type based on the initial value)
 ```javascript
@@ -225,6 +227,119 @@ type State = {count: number, name: string}
     </div>
   );
 ```
+useContext
+```javascript
+
+===== ThemeContext.tsx
+
+import { createContext } from "react";
+
+const theme = {
+  primary: {
+    main: 'black',
+    text: 'white'
+  },
+  secondary: {
+    main: 'white',
+    text: 'black'
+  }
+}
+
+type ThemeContextProvider = {
+  children: React.ReactNode;
+};
+
+export const ThemeContext = createContext(theme);
+
+export const ThemeContextProvider = ({ children }: ThemeContextProvider) => {
+  return (
+    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+  );
+};
+
+
+===== App.tsx
+
+<ThemeContextProvider>
+    <Box />
+</ThemeContextProvider>
+
+
+===== Box.tsx
+
+import {useContext} from 'react'
+import {ThemeContext} from './ThemeContext'
+
+export const Box = () => {
+  const theme = useContext(ThemeContext)
+  return <div style={{background: theme.primary.main, color: theme.primary.text}}>Theme</div>
+}
+
+```
+```javascript
+===== USerContext.tsx
+import {useState, createContext} from 'react';
+
+export type AuthUser = {
+  name: string
+  email: string
+}
+
+type UserContextType = {
+  user: AuthUser | null
+  setUser: React.Dispatch<React.SetStateAction<AuthUser | null>>
+}
+
+type UserContextProviderProp = {
+  children: React.ReactNode
+}
+
+export const UserContext = createContext<UserContextType | null>(null)
+// OR = createContext({} as UserContextType) --> don't need to check if userContext?
+
+export const UserContextProvider = ({children}:UserContextProviderProp) => {
+  const [user, setUser] = useState<AuthUser | null>(null)
+
+  return (
+    <UserContext.Provider value={{user, setUser}} >
+      {children}
+    </UserContext.Provider>
+  )
+}
+
+===== App.tsx
+
+<UserContextProvider>
+    <User />
+</UserContextProvider>
+
+
+===== User.tsx
+
+import {useContext} from 'react'
+import {UserContext} from './UserContext'
+
+export const User = () => {
+  const userContext = useContext(UserContext)
+  const handleLogin = () => {
+    if (userContext) {
+      userContext.setUser({
+        name: 'Leanne',
+        email:'l@l.com'
+      })
+    }
+  }
+
+  return (
+    <div>
+      <button onClick={handleLogin}>Login</button>
+      name: {userContext?.user?.name}
+    </div>
+  )
+}
+
+```
+
 
 #### render props
 ```javascript
