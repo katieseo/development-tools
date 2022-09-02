@@ -147,7 +147,8 @@ Social Media
     }
                 
 7. overrides (like function)
-        {posts.map(post => <SocialB post={post} user={post.User} key={post.id}
+        ```
+	{posts.map(post => <SocialB post={post} user={post.User} key={post.id}
           overrides = {{
             getPosts, //update dynamically
             Share: {
@@ -161,8 +162,8 @@ Social Media
               }
             }
           }}
-             
         />)}
+	```
     
 ---
 #### Create
@@ -211,6 +212,7 @@ import { Post } from './models';
 const models = await DataStore.query(Post);
 console.log(models);
 
+---
 
 ## Amplify App
 #### 1. Host App
