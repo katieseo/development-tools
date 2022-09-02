@@ -29,24 +29,33 @@
 	   2. Go back to the backend envorioment tab - click Launch Studio ( priviously : Open admin UI )
 	   3. Go back to the backend envorioment tab - open the **Local Setup instructions**
 	   4. Copy the command to the terminal > setup
-	   * To view the Amplify project in the dashboard
+	   
+	   To view the Amplify project in the dashboard
 	   ```sh
 	   amplify console
 	   ```
+	   
 3. Add Authentication
 	1. install the Amplify libraries
+	
 	   ```sh
 	   npm install aws-amplify @aws-amplify/ui-react
 	   ```
+	   
 	2. Create the authentication service
+	
 	   ```sh
 	   amplify add auth
 	   ```
+	   
 	3. Deploy the auathentication service
+	
 	   ```sh
 	   amplify push --y
 	   ```
+	   
 	4. Configure the React project with Amplify resources
+
 ```js
 ** index.js
 
@@ -55,7 +64,10 @@ import config from './aws-exports';
 Amplify.configure(config);
 
 ```
+
 	5. Add the authentication flow in App.js
+
+
 ```js
 import logo from "./logo.svg";
 import "@aws-amplify/ui-react/styles.css";
@@ -84,6 +96,56 @@ export default withAuthenticator(App);
 
 ```
 
+	6. Run the app locally (npm start)
+	
+	7. Set up CI/CD of the front end and backend
+	
+	```sh
+	amplify console
+	```
+	- **App settings > Build settings** (sidebar)
+	- and modify it to add the **backend section (lines 2-7 in the code below)** to your amplify.yml
+	- edit and save
+	
+```js
+version: 1
+backend:
+  phases:
+    build:
+      commands:
+        - '# Execute Amplify CLI with the helper script'
+        - amplifyPush --simple
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - yarn install
+    build:
+      commands:
+        - yarn run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+
+```
+	- Next, update front end branch to point to the backend environment you just created. 
+	  Under the branch name, choose **Edit**, and then point your **master** branch to the **dev** backend you just created.
+	  ( not sure: if it is dev.. it shows only staging )
+	  Choose **Save**
+	  
+	- Git commit ("added auth")
+
+4. Add API and database
+
+
+
+
+
+5. Add storage
 
 
 ## Amplify Studio
