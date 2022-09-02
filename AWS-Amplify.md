@@ -1,4 +1,15 @@
-Amplify Studio
+## Amplify App
+
+1. Create a new project locally
+2. Create a new repository and commit the code
+3. AWS Amplify: Create a new app (or get started) > **Host Web App** ( previously Deploy, Deliver ), NOT develop or build
+4. Set up Github workflow for building, deplying, and hosting > Save an deploy
+5. Initialize local app
+
+
+
+## Amplify Studio
+
 https://ui.docs.amplify.aws/
 
 
