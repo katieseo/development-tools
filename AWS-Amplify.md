@@ -56,47 +56,44 @@
 	   
 	4. Configure the React project with Amplify resources
 
-```js
-** index.js
+	```js
+	** index.js
 
-import Amplify from 'aws-amplify';
-import config from './aws-exports';
-Amplify.configure(config);
+	import Amplify from 'aws-amplify';
+	import config from './aws-exports';
+	Amplify.configure(config);
 
-```
-```
-```
+	```
+
 	5. Add the authentication flow in App.js
 
-```
-```
-```js
-import logo from "./logo.svg";
-import "@aws-amplify/ui-react/styles.css";
-import {
-  withAuthenticator,
-  Button,
-  Heading,
-  Image,
-  View,
-  Card,
-} from "@aws-amplify/ui-react";
+	```js
+	import logo from "./logo.svg";
+	import "@aws-amplify/ui-react/styles.css";
+	import {
+	  withAuthenticator,
+	  Button,
+	  Heading,
+	  Image,
+	  View,
+	  Card,
+	} from "@aws-amplify/ui-react";
 
-function App({ signOut }) {
-  return (
-    <View className="App">
-      <Card>
-        <Image src={logo} className="App-logo" alt="logo" />
-        <Heading level={1}>We now have Auth!</Heading>
-      </Card>
-      <Button onClick={signOut}>Sign Out</Button>
-    </View>
-  );
-}
+	function App({ signOut }) {
+	  return (
+	    <View className="App">
+	      <Card>
+		<Image src={logo} className="App-logo" alt="logo" />
+		<Heading level={1}>We now have Auth!</Heading>
+	      </Card>
+	      <Button onClick={signOut}>Sign Out</Button>
+	    </View>
+	  );
+	}
 
-export default withAuthenticator(App);
+	export default withAuthenticator(App);
 
-```
+	```
 
 	6. Run the app locally (npm start)
 	
@@ -109,31 +106,31 @@ export default withAuthenticator(App);
 	- and modify it to add the **backend section (lines 2-7 in the code below)** to your amplify.yml
 	- edit and save
 	
-```js
-version: 1
-backend:
-  phases:
-    build:
-      commands:
-        - '# Execute Amplify CLI with the helper script'
-        - amplifyPush --simple
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - yarn install
-    build:
-      commands:
-        - yarn run build
-  artifacts:
-    baseDirectory: build
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
+	```js
+	version: 1
+	backend:
+	  phases:
+	    build:
+	      commands:
+		- '# Execute Amplify CLI with the helper script'
+		- amplifyPush --simple
+	frontend:
+	  phases:
+	    preBuild:
+	      commands:
+		- yarn install
+	    build:
+	      commands:
+		- yarn run build
+	  artifacts:
+	    baseDirectory: build
+	    files:
+	      - '**/*'
+	  cache:
+	    paths:
+	      - node_modules/**/*
 
-```
+	```
 	- Next, update front end branch to point to the backend environment you just created. 
 	  Under the branch name, choose **Edit**, and then point your **master** branch to the **dev** backend you just created.
 	  ( not sure: if it is dev.. it shows only staging )
