@@ -433,14 +433,47 @@ export const Toast = ({position}:ToastProps) => {
 
 ```
 #### Wrapping HTML Elements
+```javascript
 
+type ButtonProps = {
+    variant: 'primary' | 'secondary'
+    children: string
+} & Omit<React.ComponentProps<'button'>, 'children'>
 
+export const CustomButton = ({variant, children, ...rest}:ButtonProps) => {
+    return (
+        <button className={`button-${variant}`} {...rest}>
+            {children}
+        </button>
+    )
+}
+
+export const ParentPage = () => {
+    return (
+        <CustomButton variant='primary' onClick={()=>console.log('clicked')>Primary Button</CustomButton>}
+    )
+}
+
+```
+```
+type InputProps = React.ComponentProps<'input'>
+
+export const CustomInput = (props: InputProps) => {
+    return <input {...props} />
+}
+
+```
 
 
 #### Extracting a Components Prop Types
+```javascript
+import { Greet } from '../Greet'
 
+exrpot const CustomComponent = (props: React.ComponentProps<typeof Greet>)=> {
+   return ...
+}
 
-
+```
 
 #### Polymorphic Components
 
