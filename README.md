@@ -91,6 +91,9 @@
 - Turbo Console Log
 
 ##### VS Code Shortcuts
+- 'code .' to open VS Code : F1 or ⇧+⌘+P and type shell command to find the Shell Command: Install 'code' command in PATH command.
+
+
 - Go to the file: CMD + p
 
 - Delete line : Shift + CMD + K
