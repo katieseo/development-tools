@@ -415,6 +415,7 @@ type RandomNumberProps = PositiveNumber | NegativeNumber | Zero
 ```
 
 #### Template Literals and Exclude
+
 ```javascript
 type HorizontalPosition = "Left" | "center" | "right"
 type VerticalPosition = "Top" | "center" | "bottom"
@@ -431,6 +432,48 @@ export const Toast = ({position}:ToastProps) => {
 *** position: Exclude<`${HorizontalPosition}-${VerticalPosition}`, 'center-center'> | 'center'
 
 ```
+#### Wrapping HTML Elements
+
+
+
+
+#### Extracting a Components Prop Types
+
+
+
+
+#### Polymorphic Components
+
+```javascript
+type TextOwnProps<E extends React.ElementType> = {
+  size?:'sm' | 'md' | 'lg'
+  children: React.ReactNode
+  as?: E
+}
+
+type TextProps<E extends React.ElementType> = TextOwnProps<E> & Omit<React.ComponentProps<E>, keyof TextOwnProps<E>>
+
+export const Text = <E extends React.ElementType = 'div'>({size, children, as}:TextProps<E>) => {
+  const Component = as || 'div'
+
+  return (
+    <Component className={`class-width-${size}`}>{children}</Component>
+  )
+}
+
+export const ParentPage = () => {
+  return (
+    <div>
+      <Text as='h1' size='sm'>H1</Text>
+      <Text as='label' size='sm' htmlFor="username">Label</Text>
+    </div>
+  )
+}
+
+```
+
+
+
 
 ## Typescript basics
 
