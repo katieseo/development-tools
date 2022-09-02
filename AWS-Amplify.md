@@ -106,7 +106,7 @@ Authentication
       );
 
 
-//////////------------------------------------------------------------
+--- 
 
 Social Media
 
@@ -164,9 +164,8 @@ Social Media
              
         />)}
     
-//////////------------------------------------------------------------
-
-////////Create
+---
+#### Create
 
 import { DataStore } from '@aws-amplify/datastore';
 import { Post } from './models';
@@ -184,7 +183,7 @@ await DataStore.save(
 
 
 
-////////Update
+#### Update
 
 import { DataStore } from '@aws-amplify/datastore';
 import { Post } from './models';
@@ -196,7 +195,7 @@ await DataStore.save(Post.copyOf(CURRENT_ITEM, item => {
 }));
 
 
-////////Delete
+#### Delete
 import { DataStore } from '@aws-amplify/datastore';
 import { Post } from './models';
 
@@ -204,8 +203,7 @@ const modelToDelete = await DataStore.query(Post, 123456789);
 DataStore.delete(modelToDelete);
 
 
-
-/////////Query
+#### Query
 import { DataStore } from '@aws-amplify/datastore';
 import { Post } from './models';
 
