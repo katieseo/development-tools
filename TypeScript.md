@@ -227,7 +227,7 @@ type State = {count: number, name: string}
     </div>
   );
 ```
-useContext
+Context API
 ```javascript
 
 ===== ThemeContext.tsx
