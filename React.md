@@ -1,6 +1,6 @@
 #### Form
 
-```
+```js
 export default function Form() {
     const [formData, setFormData] = React.useState(
         {
