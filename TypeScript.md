@@ -231,6 +231,38 @@ type State = {count: number, name: string}
   );
 ```
 Context API
+```js
+type User = {
+    name: string
+}
+
+type UserContext = {
+    user: User
+    setUser: React.Dispatch<React.setStateAction<User>>
+}
+
+export const UserContext = createContext<UserContext | null>(null);   <----*
+
+export default function App(){
+    const [user, setUser] = userState<USer>({name: "Leanne"})         <----*
+    return (
+        <UserContext.Provider value={{ user, setUser }}>
+            <Page />
+        </UserContext.Provider>
+    )
+}
+
+export const Page = () => {
+    const userContext = useContext(UserContext)
+    return (
+        <div>{userContext?.user.name}</div>                            <----*** must use '?'
+    )
+}
+
+```
+
+
+
 ```javascript
 
 ===== ThemeContext.tsx
