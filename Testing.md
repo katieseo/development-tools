@@ -201,6 +201,17 @@ describe("comp testing", () => {
 ```
 
 ## Jest
+#### watch only | skip the test
+```
+test.only('', ()=>{
+
+})
+
+test.skip('', ()=>{
+
+})
+```
+
 #### Mock Function
 ```
 test("should add 1,2 and give result 3", () => {
