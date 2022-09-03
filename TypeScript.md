@@ -71,6 +71,9 @@ interface Props {
 
 <input onChange={handleChange} />. <--- hover over onChange and copy (event: React.ChangeEvent<HTMLInputElement>)
 
+
+when select element: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+
 ```
 ```javascript
 type Prop = {
