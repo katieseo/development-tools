@@ -124,6 +124,19 @@ Example.tsx
 
 ### hooks
 #### useState (TS can infer the state type based on the initial value)
+```js
+type MessageType = {
+  message: string;
+  username: string;
+  __createdtime__: Date;
+};
+
+const Message = () => {
+  const [messagesRecieved, setMessagesReceived] = useState<MessageType[]>([]);
+  ....
+}
+
+```
 ```javascript
 
 interface AuthUser {
@@ -171,7 +184,7 @@ useRef<number | null>(null)
 if (intervalRef.current) window.clearInterval(intervalRef.current)
 
 ```
-useReducer
+#### useReducer
 ```javascript
 type Actions = 
   | {type: 'add'; text: string;}
