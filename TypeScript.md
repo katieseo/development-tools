@@ -22,8 +22,8 @@ type car = { make: string; }
 type car is now { make:string }
 ```
 
-#### props
-array with obj
+### props
+#### array with obj
 ```javascript
 type PropsT = {
     names: {
@@ -41,7 +41,7 @@ const App = () => {
     return <Part names={[{first: 'Leanne', last: 'N'}, {first: 'Katie', last: 'S'}]} />
 }
 ```
-click event
+#### click event
 ```javascript
 type Prop = {
   handleClick: (event:React.MouseEvent<HTMLButtonElement>, name:number) => void
@@ -60,7 +60,7 @@ export default function App() {
   );
 }
 ```
-change event
+#### change event
 ```javascript
 interface Props {
   .
@@ -94,7 +94,7 @@ export default function App() {
   );
 }
 ```
-CSSProperties
+#### CSSProperties
 ```javascript
 type Prop = {
   styles?: React.CSSProperties
@@ -122,8 +122,8 @@ Example.tsx
 
 
 
-#### hooks
-useState (TS can infer the state type based on the initial value)
+### hooks
+#### useState (TS can infer the state type based on the initial value)
 ```javascript
 
 interface AuthUser {
@@ -142,7 +142,7 @@ const [user, setUser] = useState<AuthUser>({} as AuthUser);
 
 ```
 
-useRef
+#### useRef
 ```javascript
 const inputRef = useRef<HTMLInputElement>(null)
 
@@ -230,7 +230,7 @@ type State = {count: number, name: string}
     </div>
   );
 ```
-Context API
+#### Context API
 ```js
 type User = {
     name: string
@@ -375,7 +375,7 @@ export const User = () => {
 
 ```
 
-#### Component Prop
+### Component Prop
 ```javascript
 ==== App.tsx
 <Private isLoggedIn={true} component={Profile}  />
@@ -405,7 +405,7 @@ export const Private = ({isLoggedIn, component:Component}:Props) => {
 }
 
 ```
-#### Generic Props
+### Generic Props
 ```javascript
 === App.tsx
 <List items={[1,2,3]} handleClick={(item) => console.log(item)} />
@@ -433,7 +433,7 @@ export const List = <T extends {}>({items, handleClick}:Props<T>) => {
 
 ```
 
-#### Restricting Props
+### Restricting Props
 ```javascript
 type RandomNumber = {
     value: number
@@ -449,7 +449,7 @@ type RandomNumberProps = PositiveNumber | NegativeNumber | Zero
 
 ```
 
-#### Template Literals and Exclude
+### Template Literals and Exclude
 
 ```javascript
 type HorizontalPosition = "Left" | "center" | "right"
@@ -467,7 +467,7 @@ export const Toast = ({position}:ToastProps) => {
 *** position: Exclude<`${HorizontalPosition}-${VerticalPosition}`, 'center-center'> | 'center'
 
 ```
-#### Wrapping HTML Elements
+### Wrapping HTML Elements
 ```javascript
 
 type ButtonProps = {
@@ -500,7 +500,7 @@ export const CustomInput = (props: InputProps) => {
 ```
 
 
-#### Extracting a Components Prop Types
+### Extracting a Components Prop Types
 ```javascript
 import { Greet } from '../Greet'
 
@@ -510,7 +510,7 @@ exrpot const CustomComponent = (props: React.ComponentProps<typeof Greet>)=> {
 
 ```
 
-#### Polymorphic Components
+### Polymorphic Components
 
 ```javascript
 type TextOwnProps<E extends React.ElementType> = {
