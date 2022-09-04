@@ -234,7 +234,7 @@ test("should return 3", () => {
 package.json
 ```js
 "scripts": {
-    "coverage": "npm test --coverage --watchAll --CollectCoverageFrom='src/components/**/*.{ts,tsx}'"
+    "coverage": "npm test --coverage --watchAll --CollectCoverageFrom='src/components/**/*.{ts,tsx}' --CollectCoverageFrom='!src/components/**/*.{types,stories,constants,test,spec}.{ts,tsx}'"
 }
 ```
 > Always active code coverage (package.json)
