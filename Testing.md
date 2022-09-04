@@ -203,11 +203,11 @@ describe("comp testing", () => {
 ## Jest
 #### watch only | skip the test
 ```js
-test.only('', ()=>{     <= OR fit('', ()=>{
+test.only('', ()=>{       fit('', ()=>{
 
 })
 
-test.skip('', ()=>{     <== OR xit('', ()=>{
+test.skip('', ()=>{        xit('', ()=>{
 
 })
 ```
