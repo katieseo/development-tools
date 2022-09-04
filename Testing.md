@@ -231,7 +231,12 @@ test("should return 3", () => {
 
 
 #### npm test -- --coverage
-
+package.json
+```js
+"scripts": {
+    "coverage": "npm test --coverage --watchAll"
+}
+```
 > Always active code coverage (package.json)
 ```
 "scripts": {
