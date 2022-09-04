@@ -241,7 +241,7 @@ type UserContext = {
     setUser: React.Dispatch<React.setStateAction<User>>
 }
 
-export const UserContext = createContext<UserContext | null>(null);   <----*
+export const UserContext = createContext<UserContext | null>(null);   <----* or createContext({} as UserContext) then don't need '?' later
 
 export default function App(){
     const [user, setUser] = userState<USer>({name: "Leanne"})         <----*
