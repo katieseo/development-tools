@@ -21,6 +21,24 @@ type car = { make: string; }
 
 type car is now { make:string }
 ```
+#### Experienced Erros
+```js
+Error: Type 'void[]' is not assignable to type 'ReactNode'
+
+{Items.map(item => {
+    return (          <--make sure to return ()
+    
+    )
+})}
+```
+```js
+Error: Argument of type '() => () => ...' is not assignable to parameter of type 'EffectCallback'.
+
+useEffect(()=>{
+    ...
+    return () => {....}   <------ make sure to wrap around {} 
+});
+```
 
 ### props
 #### array with obj
