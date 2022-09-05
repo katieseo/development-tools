@@ -56,6 +56,25 @@ expect(idElem.value).toBe(testValue);
 const elem = screen.getByTestId('my-test-id')
 const el = screen.getByText('mylink') or /^mylink$/i
 ```
+```js
+when there are more than one text input
+
+<label forHTML="school">School</label>
+<input type="text" id="school" />
+
+const schoolEl = screen.getByRole('textbox', {
+    name: 'School'
+})
+```
+```js
+when there are more than one heading, pass options
+
+<h1>h1 Heading</h1>
+
+const headingEl = screen.getByRole('heading', {
+    level: 1
+})
+```
 ```
 <li></li>
 <li></li>
