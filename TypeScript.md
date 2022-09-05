@@ -21,7 +21,7 @@ type car = { make: string; }
 
 type car is now { make:string }
 ```
-#### Experienced Erros
+#### Experienced Errors
 ```js
 Error: Type 'void[]' is not assignable to type 'ReactNode'
 
