@@ -223,6 +223,7 @@ console.log(models);
 	5. Check deployed and live running app
 
 #### 2. Intialize Local App | Amplify CLI
+
 	1. Insall the Amplify CLI
 	```sh
 	curl -sL https://aws-amplify.github.io/amplify-cli/install | bash && $SHELL
@@ -251,7 +252,8 @@ console.log(models);
 	   ```sh
 	   amplify console
 	   ```
-	   
+	
+	
 #### 3. Add Authentication | Amazon Cognito
 	1. install the Amplify libraries
 	
