@@ -5,6 +5,8 @@ npm init -y
 ```
 
 ```
+File structure
+
 db/
     cars.js
     knex.js
