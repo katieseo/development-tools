@@ -1,3 +1,16 @@
+## Amplify
+
+1. create react app
+2.
+```
+amplify init
+npm i -g @aws-amplify/cli (if don't have)
+amplify add auth
+```
+
+
+
+
 ## Amplify Studio
 
 https://ui.docs.amplify.aws/
