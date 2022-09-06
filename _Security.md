@@ -1,4 +1,6 @@
-# Web security [https://developer.mozilla.org/en-US/docs/Web/Security]
+# Web security
+
+MDN [https://developer.mozilla.org/en-US/docs/Web/Security]
 
 ## Same-origin policy
 
