@@ -1,6 +1,6 @@
-[Array]==============================
+## Array
 
-//-----* Creating *
+#### Creating *
 
 const myArr = new Array(3) // [empty x 3] sparse array, cannot iterate over
 const myArr = [...new Array(3) // [undefined, undefined, undefined] populate the new array properly 
@@ -8,24 +8,25 @@ const myArr = [...new Array(3) // [undefined, undefined, undefined] populate the
 const myArr = Array.from('foo') // ["f", "o", "o"]
 const myArr = Array.from([1, 2, 3], x => x + x) // [2, 4, 6]
 
-//-----* compare *
+#### compare *
 function(a,b){return a-b}/define an alternative sort order (return a negative, sero, or positive value)
 
 
-//-----* Iterate *
+#### Iterate *
 forEach( (item, index) => do something ) // applies some operation with side effects to each list items, no return
 map // transforms each items and return another list with transformed items
 
-//-----* filter *
+#### filter *
 
-//-----* sorting *
+#### sorting *
 
 myArr.sort(); //array alphabetically
 myArr.reverse(); // descending order
 
 myArr.sort((a, b) => a-b) // numeric sort
 
-//-----* Shuffle *
+#### Shuffle *
+```js
 myArr.sort(() => Math.random() - 0.5);
 
 // (optimized version of Fisher-Yates) *
@@ -36,16 +37,17 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+```
 
+## Object
 
-[Object]==============================
-
-//-----* Iterate *
+#### Iterate *
 
 Object.keys(myObj).map((key, index) => myObj[key] *= 2);
 for (const propName in myObj) { }
 
-//-----* return Obj keys arr
+#### return Obj keys arr
+```js
 const object1 = {
   a: 'somestring',
   b: 42,
@@ -54,12 +56,11 @@ const object1 = {
 
 console.log(Object.keys(object1));
 // expected output: Array ["a", "b", "c"]
+```
 
-
-
-//-----* Using Object.keys
+#### Using Object.keys
 * returns an array whose elements are strings corresponding to the enumerable properties found directly upon object
-
+```js
 const object1 = {
   a: 'somestring',
   b: 42,
@@ -91,48 +92,48 @@ console.log(Object.keys(myObj)); // console: ['foo']
 // In ES2015+ (before: TypeError)
 Object.keys('foo');  // ["0", "1", "2"]
 
+```
 
 
+## String
 
-[String]==============================
-
-//-----* returns the character at the specified index in a string *
-
+#### returns the character at the specified index in a string *
+```js
 myStr.charAt(0);   //'H'ello
+```
 
 
+## Math
 
-[Math]==============================
-
-//-----* random number *
+#### random number *
 Math.floor(Math.random() * 10);   // 0-9
 Math.floor(Math.random() * 10) + 1;   // 1-10
 
 Math.floor(Math.random() * (max - min) ) + min; // getRndInteger (max excluded)
 
 
-[Number]==============================
+## Number
 
-//-----* Integer *
+#### Integer *
 Number.isInteger(3) // Returns a random integer from 0 to 9:
 
 
 
-[DOM]==============================
+## DOM
 
-//-----* Make a list *
+#### Make a list *
 const ul = document.createElement('ul');
 document.body.appendChild(ul);
 ul.addEventListener('click', hide, false);
 
-//-----* event.target *
+#### event.target *
 event.target.style.visibility = 'hidden';
 
 
 
-[React]==============================
+## React
 
-//-----* React.js inline style best practices *
+#### React.js inline style best practices *
 https://stackoverflow.com/questions/26882177/react-js-inline-style-best-practices
 
 HTML Case:
