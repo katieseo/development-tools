@@ -1,41 +1,20 @@
 ## Amplify Project
 
 1. create react app
-2. terminal
+2. install aws-amplify
 ```
-amplify init
-npm i -g @aws-amplify/cli (if don't have)
-amplify add auth
-amplify status <--check status
-amplify push -y <-- after adding auth via 'amplify add auth'
-
+npm i -g @aws-amplify/cli (one time)
 npm i aws-amplify @aws-amplify/ui-react
 ```
-3. index.tsx
+3. terminal
 ```
-import config from "./aws-exports";
-import Amplify from "aws-amplify";
-import { AmplifyProvider } from "@aws-amplify/ui-react";
-Amplify.configure(config);
-
-
-    <AmplifyProvider>
-      <App />
-    </AmplifyProvider>
-```
-4. App.tsx
-```
-import { withAuthenticator } from "@aws-amplify/ui-react";
-import "@aws-amplify/ui-react/styles.css";
-...
-export default withAuthenticator(App);
-```
-5. terminal
-```
+amplify init
+amplify add auth
 amplify add api (select Amazon Cognito User pool)
 ```
-6. backend/api/mypets/schema.graphql
 ```js
+backend/api/mypets/schema.graphql
+
 type Pet @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   name: String!
@@ -49,15 +28,43 @@ enum petEnum {
   fish
 }
 ```
+Authorization rules[https://docs.amplify.aws/cli/graphql/authorization-rules/]
 ```
-amplify push -y
+amplify push
+
+amplify status <--check status
 amplify console <-- open the console
 ```
-Authorization rules[https://docs.amplify.aws/cli/graphql/authorization-rules/]
 
-7.
+4. index.tsx
+```
+import config from "./aws-exports";
+import Amplify from "aws-amplify";
+import { AmplifyProvider } from "@aws-amplify/ui-react";
+Amplify.configure(config);
 
-dd[https://docs.amplify.aws/lib/graphqlapi/mutate-data/q/platform/js/]
+
+    <AmplifyProvider>
+      <App />
+    </AmplifyProvider>
+```
+
+5. App.tsx
+```
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
+...
+export default withAuthenticator(App);
+```
+```
+
+6.Create, update, delete data
+```
+const newTodo = await API.graphql({ query: mutations.createTodo, variables: {input: todoDetails}});
+const updatedTodo = await API.graphql({ query: mutations.updateTodo, variables: {input: todoDetails}});
+const deletedTodo = await API.graphql({ query: mutations.deleteTodo, variables: {input: todoDetails}});
+```
+API (GRAPHQL)[[https://docs.amplify.aws/lib/graphqlapi/mutate-data/q/platform/js/]
 
 
 ## Amplify Studio
