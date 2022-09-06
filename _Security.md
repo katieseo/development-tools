@@ -14,6 +14,7 @@ http://news.company.com/dir/page.html.     ---> failure: differnt host
 ```
 
 Same-origin policy [https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy]
+
 CORS [https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS]
 
 
