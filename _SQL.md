@@ -107,9 +107,21 @@ app.listen(4000, () => console.log("server is running on port 4000"));
 
 #### test using postman 
 ```
-Post http://localhost:4000/cars/
+POST http://localhost:4000/cars/
 
-Body row json
+Body 
+row json
+
+{
+    "make": "honda",
+    "model": "civic"
+    "year": 2013
+}
+
+GET http://localhost:4000/cars/
+
+DELETE http://localhost:4000/cars/1
+
 ```
 
 
