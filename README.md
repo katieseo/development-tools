@@ -14,7 +14,7 @@
 - npm install -S yup
 - npm install react-datepicker --save
 - npm install --save @types/react-datepicker
-- npm install react-slick --save [React Slick](https://react-slick.neostack.com/docs/get-started)
+- [React Slick](https://react-slick.neostack.com/docs/get-started) npm install react-slick --save
 
 | Heroicons
 
