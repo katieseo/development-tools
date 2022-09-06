@@ -5,6 +5,14 @@ npm init -y
 npm i express mongoose nodemon dotenv
 ```
 
+#### package.json
+```
+"scripts": {
+    "start": "nodemon index.js",
+    ...
+},
+```
+
 #### index.js
 ```js
 require("dotenv").config();
