@@ -1,4 +1,4 @@
-## Amplify
+## Amplify Project
 
 1. create react app
 2.
@@ -6,6 +6,7 @@
 amplify init
 npm i -g @aws-amplify/cli (if don't have)
 amplify add auth
+amplify status <--check status
 ```
 
 
