@@ -1,20 +1,68 @@
 ## Amplify Project
 
 1. create react app
-2.
+2. terminal
 ```
 amplify init
 npm i -g @aws-amplify/cli (if don't have)
 amplify add auth
 amplify status <--check status
+amplify push -y <-- after adding auth via 'amplify add auth'
+
+npm i aws-amplify @aws-amplify/ui-react
 ```
+3. index.tsx
+```
+import config from "./aws-exports";
+import Amplify from "aws-amplify";
+import { AmplifyProvider } from "@aws-amplify/ui-react";
+Amplify.configure(config);
 
 
+    <AmplifyProvider>
+      <App />
+    </AmplifyProvider>
+```
+4. App.tsx
+```
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
+...
+export default withAuthenticator(App);
+```
+5. terminal
+```
+amplify add api (select Amazon Cognito User pool)
+```
+6. backend/api/mypets/schema.graphql
+```js
+type Pet @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  name: String!
+  description: String!
+  petType: petEnum!
+}
+
+enum petEnum {
+  dog
+  cat
+  fish
+}
+```
+```
+amplify push -y
+amplify console <-- open the console
+```
+Authorization rules[https://docs.amplify.aws/cli/graphql/authorization-rules/]
+
+7.
+
+dd[https://docs.amplify.aws/lib/graphqlapi/mutate-data/q/platform/js/]
 
 
 ## Amplify Studio
 
-https://ui.docs.amplify.aws/
+Create, update, delete data[https://ui.docs.amplify.aws/]
 
 
 1. setup data, Figma UI (modify SocialA)
