@@ -1,7 +1,7 @@
 ## Node Rest API using Express and SQLite
 
 ```
->db
+db/
     cars.js
     knex.js
 cwc.sqlite3
