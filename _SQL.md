@@ -1,5 +1,9 @@
 ## Node Rest API using Express and SQLite
 
+```js
+npm init -y
+```
+
 ```
 db/
     cars.js
