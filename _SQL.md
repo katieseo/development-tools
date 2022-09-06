@@ -1,5 +1,14 @@
 ## Node Rest API using Express and SQLite
 
+```
+>db
+    cars.js
+    knex.js
+cwc.sqlite3
+package.json
+server.js
+```
+
 #### package.json
 ```js
 "scripts": {
