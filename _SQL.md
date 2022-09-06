@@ -1,3 +1,142 @@
+## Restful API using Node, Express, and MongoDB
+
+```js
+npm init -y
+npm i express mongoose nodemon dotenv
+```
+
+#### index.js
+```js
+require("dotenv").config();
+
+const express = require("express");
+const mongoose = require("mongoose");
+const mongoString = process.env.DATABASE_URL;
+const routes = require("./routes/routes");
+
+mongoose.connect(mongoString);
+const database = mongoose.connection;
+
+database.on("error", (error) => console.log(error));
+database.once("connected", () => console.log("database connected"));
+
+const app = express();
+app.use(express.json());
+
+app.use("/api", routes);
+
+//app.get("/", (req, res) => {
+//  res.status(200).json({ success: true });
+//});
+
+app.listen(3001, () => {
+  console.log(`Server started at ${3001}`);
+});
+```
+
+#### Configure the MongoDB Database
+
+1. Click MongoDB Compass and download
+2. Copy the connection string and open MongoDB Compass with the string
+3. .env file 
+```
+DATABASE_URL = mongodb+srv://username:*******@cluster0.gpbdvxq.mongodb.net/test
+```
+4. .gitignore
+```
+.env
+node_modules
+```
+
+#### routes/routes.js
+```js
+const express = require("express");
+const router = express.Router();
+const Model = require("../model/model");
+
+router.post("/post", async (req, res) => {
+  //res.send("Post API");
+  const data = new Model({
+    name: req.body.name,
+    age: req.body.age,
+  });
+
+  try {
+    const dataToSave = await data.save();
+    res.status(200).json(dataToSave);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+router.get("/getAll", async (req, res) => {
+  //res.send("Get All API");
+  try {
+    const data = await Model.find();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.get("/getOne/:id", async (req, res) => {
+  //res.send(req.params.id);
+  try {
+    const data = await Model.findById(req.params.id);
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.patch("/update/:id", async (req, res) => {
+  //res.send("Update by ID API");
+  try {
+    const id = req.params.id;
+    const updatedData = req.body;
+    const options = { new: true };
+
+    const result = await Model.findByIdAndUpdate(id, updatedData, options);
+    res.send(result);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+router.delete("/delete/:id", async (req, res) => {
+  //res.send("Delete by ID API");
+  try {
+    const id = req.params.id;
+    const data = await Model.findByIdAndDelete(id);
+    res.send(`Document with ${data.name} has been deleted.`);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+module.exports = router;
+```
+
+#### model/model.js
+```js
+const mongoose = require("mongoose");
+const dataSchema = new mongoose.Schema({
+  name: {
+    required: true,
+    type: String,
+  },
+  age: {
+    required: true,
+    type: Number,
+  },
+});
+
+module.exports = mongoose.model("Data", dataSchema);
+```
+
+#### Test with Postman and check the MongoDB Compass app
+
+
 ## Node Rest API using Express and SQLite
 
 ```js
