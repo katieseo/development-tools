@@ -56,13 +56,65 @@ import "@aws-amplify/ui-react/styles.css";
 ...
 export default withAuthenticator(App);
 ```
-```
 
-6.Create, update, delete data
+6.Get list, Create data
 ```
-const newTodo = await API.graphql({ query: mutations.createTodo, variables: {input: todoDetails}});
-const updatedTodo = await API.graphql({ query: mutations.updateTodo, variables: {input: todoDetails}});
-const deletedTodo = await API.graphql({ query: mutations.deleteTodo, variables: {input: todoDetails}});
+const [petData, setPetData] = useState([]);
+
+useEffect(() => {
+    const fetchPets = async () => {
+      const response = await API.graphql<any>({
+        query: listPets,
+      });
+      return response.data.listPets.items;
+    };
+
+    fetchPets().then((pets) => setPetData(pets));
+}, []);
+```
+```
+import { API } from "aws-amplify";
+import { createPet } from "./graphql/mutations";
+
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const target = e.target as HTMLFormElement;
+
+    try {
+      await API.graphql({
+        query: createPet,
+        variables: {
+          input: {
+            name: target.petName.value,
+            description: target.description.value,
+            petType: target.petType.value,
+          },
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+```
+```
+Examples)
+
+
+const allTodos = await API.graphql({ query: queries.listTodos });
+
+const newTodo = await API.graphql({ query: mutations.createTodo, variables: {input: {
+  name: 'Todo 1',
+  description: 'Learn AWS AppSync'
+}
+}});
+
+const updatedTodo = await API.graphql({ query: mutations.updateTodo, variables: {input: {
+  id: 'some_id',
+  description: 'My updated description!'
+}
+}});
+
+const deletedTodo = await API.graphql({ query: mutations.deleteTodo, variables: {input: { id: 'some_id }} });
 ```
 API (GRAPHQL)[[https://docs.amplify.aws/lib/graphqlapi/mutate-data/q/platform/js/]
 
