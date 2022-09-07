@@ -6,7 +6,7 @@
 npm i -g @aws-amplify/cli (one time)
 npm i aws-amplify @aws-amplify/ui-react
 ```
-3. terminal
+3. init, add auth, add api
 ```
 amplify init
 amplify add auth
