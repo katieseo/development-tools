@@ -41,6 +41,7 @@ amplify console <-- open the console
 import config from "./aws-exports";
 import Amplify from "aws-amplify";
 import { AmplifyProvider } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
 Amplify.configure(config);
 
 
@@ -52,7 +53,6 @@ Amplify.configure(config);
 5. App.tsx
 ```js
 import { withAuthenticator } from "@aws-amplify/ui-react";
-import "@aws-amplify/ui-react/styles.css";
 ...
 export default withAuthenticator(App);
 ```
@@ -142,7 +142,7 @@ API (GRAPHQL)[https://docs.amplify.aws/lib/graphqlapi/mutate-data/q/platform/js/
 ## Amplify Studio
 
 Amplify UI [https://ui.docs.amplify.aws/]
-
+Amplify Studio [https://sandbox.amplifyapp.com/]
 
 1. setup data, Figma UI (modify SocialA)
 
@@ -151,44 +151,37 @@ Amplify UI [https://ui.docs.amplify.aws/]
 Local setup (pull) > front end & backend connection
 ```
 3. index.js
-    import config from "./aws-exports";
-    import Amplify from "aws-amplify";
-
-    import { AmplifyProvider } from "@aws-amplify/ui-react";
-    import "@aws-amplify/ui-react/styles.css";
-
-    Amplify.configure(config);
-
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(
-      <AmplifyProvider>
-        <App />
-      </AmplifyProvider>
-    );
-    
+```
+Basic Setup
+```
 4. App.js
-    import PostCollection from "./ui-components/PostCollection";
+```js
+import PostCollection from "./ui-components/PostCollection";
 
-    function App() {
-      return (
-        <PostCollection />
-      );
-    }
-    
+function App() {
+    return (
+    	<PostCollection />
+    );
+}
+``` 
 5. index.css
-    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-    
+```js
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+```
+
 6. Pagination
 https://ui.docs.amplify.aws/react/components/collection
 
-  App.js
-  
-  function App() {
-    return <PostCollection isPaginated itemsPerPage={3} />;
-  }
+```js
+App.js
+ 
+function App() {
+  return <PostCollection isPaginated itemsPerPage={3} />;
+}
 
 7. Overides
-  <PostCollection
+```js
+<PostCollection
       isPaginated
       itemsPerPage={3}
       overrides={{
@@ -200,13 +193,10 @@ https://ui.docs.amplify.aws/react/components/collection
             },
           },
         },
-      }}
-      
- 8. https://sandbox.amplifyapp.com/
- 
----
+}}
+```
 
-Authentication
+#### Authentication
 
   4. App.js
     import { withAuthenticator } from "@aws-amplify/ui-react";
@@ -247,10 +237,7 @@ Authentication
         </AmplifyProvider>
       );
 
-
---- 
-
-Social Media
+#### Social Media
 
  1. Data=======
     Post (id, content, postedAt[AWSDateTime], likeds[int])
@@ -307,7 +294,6 @@ Social Media
         />)}
 	```
     
----
 #### Create
 
 import { DataStore } from '@aws-amplify/datastore';
@@ -323,8 +309,6 @@ await DataStore.save(
 		"liked": 1020
 	})
 );
-
-
 
 #### Update
 
@@ -356,7 +340,7 @@ console.log(models);
 
 ---
 
-## Amplify App
+## Amplify App CICD
 #### 1. Host App
 	1. Create a new project locally
 	2. Create a new repository and commit the code
@@ -707,6 +691,7 @@ console.log(models);
 	}
 	```
 
+---
 
 ## Book Project
 
@@ -774,14 +759,6 @@ console.log(models);
 6) Create Cloud Resources (Userpool, S3 bucket, AppSync API(api category), DynamoDB Tables(as resolver), Lambda functions(pipeline resolvers)
 
 	1. amplify push
-
-
-
-
-
-
-
-
 
 
 
