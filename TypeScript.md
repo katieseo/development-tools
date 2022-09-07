@@ -59,6 +59,17 @@ const App = () => {
     return <Part names={[{first: 'Leanne', last: 'N'}, {first: 'Katie', last: 'S'}]} />
 }
 ```
+#### submit event
+```
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const target = e.target as HTMLFormElement;
+    
+    const petname = target.petName;
+...
+}
+
+```
 #### click event
 ```javascript
 type Prop = {
