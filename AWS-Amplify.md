@@ -141,14 +141,15 @@ API (GRAPHQL)[https://docs.amplify.aws/lib/graphqlapi/mutate-data/q/platform/js/
 
 ## Amplify Studio
 
-Create, update, delete data[https://ui.docs.amplify.aws/]
+Amplify UI [https://ui.docs.amplify.aws/]
 
 
 1. setup data, Figma UI (modify SocialA)
 
 2. npm i aws-amplify @aws-amplify/ui-react
-    Local setup (pull) > front end & backend connection
-
+```
+Local setup (pull) > front end & backend connection
+```
 3. index.js
     import config from "./aws-exports";
     import Amplify from "aws-amplify";
