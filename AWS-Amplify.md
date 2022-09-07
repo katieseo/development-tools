@@ -2,12 +2,12 @@
 
 1. create react app
 2. install aws-amplify
-```
+```js
 npm i -g @aws-amplify/cli (one time)
 npm i aws-amplify @aws-amplify/ui-react
 ```
 3. init, add auth, add api
-```
+```js
 amplify init
 amplify add auth
 amplify add api (select Amazon Cognito User pool)
@@ -29,7 +29,7 @@ enum petEnum {
 }
 ```
 Authorization rules[https://docs.amplify.aws/cli/graphql/authorization-rules/]
-```
+```js
 amplify push
 
 amplify status <--check status
@@ -37,7 +37,7 @@ amplify console <-- open the console
 ```
 
 4. index.tsx
-```
+```js
 import config from "./aws-exports";
 import Amplify from "aws-amplify";
 import { AmplifyProvider } from "@aws-amplify/ui-react";
@@ -50,7 +50,7 @@ Amplify.configure(config);
 ```
 
 5. App.tsx
-```
+```js
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 ...
@@ -58,7 +58,7 @@ export default withAuthenticator(App);
 ```
 
 6. Get list, Create, Delete (App.tsx)
-```
+```js
 import { API } from "aws-amplify";
 import { createPet, deletePet } from "./graphql/mutations";
 import { listPets } from "./graphql/queries";
@@ -76,7 +76,7 @@ useEffect(() => {
     fetchPets().then((pets) => setPetData(pets));
 }, []);
 ```
-```
+```js
 import { API } from "aws-amplify";
 import { createPet } from "./graphql/mutations";
 
@@ -102,7 +102,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     }
   };
 ```
-```
+```js
 const handleDelete = async (petId: string) => {
     const newList = petData.filter((pet) => petId !== pet.id);
     await API.graphql({
@@ -114,7 +114,7 @@ const handleDelete = async (petId: string) => {
     setPetData(newList);    <-- for instant update
 };
 ```
-```
+```js
 Examples)
 
 const allTodos = await API.graphql({ query: queries.listTodos });
@@ -134,6 +134,8 @@ const updatedTodo = await API.graphql({ query: mutations.updateTodo, variables: 
 const deletedTodo = await API.graphql({ query: mutations.deleteTodo, variables: {input: { id: 'some_id }} });
 ```
 API (GRAPHQL)[https://docs.amplify.aws/lib/graphqlapi/mutate-data/q/platform/js/]
+
+
 
 
 ## Amplify Studio
