@@ -57,8 +57,12 @@ import "@aws-amplify/ui-react/styles.css";
 export default withAuthenticator(App);
 ```
 
-6.Get list, Create data
+6. Get list, Create, Delete (App.tsx)
 ```
+import { API } from "aws-amplify";
+import { createPet, deletePet } from "./graphql/mutations";
+import { listPets } from "./graphql/queries";
+
 const [petData, setPetData] = useState([]);
 
 useEffect(() => {
