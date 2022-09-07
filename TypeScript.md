@@ -39,26 +39,7 @@ useEffect(()=>{
     return () => {....}   <------ wrap around {} 
 });
 ```
-
-### props
-#### array with obj
-```javascript
-type PropsT = {
-    names: {
-        first: string
-        last: string
-    }[]
-}
-
-const Part = (props:PropsT) => {
-    return (
-        <div>{props.names.map(n => n.first)}</div>
-    )
-}
-const App = () => {
-    return <Part names={[{first: 'Leanne', last: 'N'}, {first: 'Katie', last: 'S'}]} />
-}
-```
+### event
 #### submit event
 ```
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -123,6 +104,27 @@ export default function App() {
   );
 }
 ```
+
+### props
+#### array with obj
+```javascript
+type PropsT = {
+    names: {
+        first: string
+        last: string
+    }[]
+}
+
+const Part = (props:PropsT) => {
+    return (
+        <div>{props.names.map(n => n.first)}</div>
+    )
+}
+const App = () => {
+    return <Part names={[{first: 'Leanne', last: 'N'}, {first: 'Katie', last: 'S'}]} />
+}
+```
+
 #### CSSProperties
 ```javascript
 type Prop = {
