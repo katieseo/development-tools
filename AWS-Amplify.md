@@ -136,6 +136,7 @@ const deletedTodo = await API.graphql({ query: mutations.deleteTodo, variables: 
 API (GRAPHQL)[https://docs.amplify.aws/lib/graphqlapi/mutate-data/q/platform/js/]
 
 
+---
 
 
 ## Amplify Studio
