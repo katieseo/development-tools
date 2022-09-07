@@ -2,6 +2,7 @@
 
 ##### package installation
 
+- npx create-next-app@latest --ts (next.js ts)
 - npx create-react-app ./ --template redux-typescript (react toolkit+ts)
 - npx create-react-app ./ --template typescript (react ts)
 - npm install react-router-dom
