@@ -81,7 +81,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const target = e.target as HTMLFormElement;
 
     try {
-      await API.graphql({
+      const data = await API.graphql<any>({
         query: createPet,
         variables: {
           input: {
@@ -91,14 +91,27 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           },
         },
       });
+
+      setPetData((currentList) => [...currentList, data.data.createPet]);  <-- for instant update
     } catch (error) {
       console.log(error);
     }
   };
 ```
 ```
+const handleDelete = async (petId: string) => {
+    const newList = petData.filter((pet) => petId !== pet.id);
+    await API.graphql({
+      query: deletePet,
+      variables: {
+        input: { id: petId },
+      },
+    });
+    setPetData(newList);    <-- for instant update
+};
+```
+```
 Examples)
-
 
 const allTodos = await API.graphql({ query: queries.listTodos });
 
