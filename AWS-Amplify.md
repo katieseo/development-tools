@@ -28,7 +28,7 @@ enum petEnum {
   fish
 }
 ```
-Authorization rules [https://docs.amplify.aws/cli/graphql/authorization-rules/]
+Authorization rules[https://docs.amplify.aws/cli/graphql/authorization-rules/]
 ```
 amplify push
 
@@ -129,7 +129,7 @@ const updatedTodo = await API.graphql({ query: mutations.updateTodo, variables: 
 
 const deletedTodo = await API.graphql({ query: mutations.deleteTodo, variables: {input: { id: 'some_id }} });
 ```
-API (GRAPHQL)[[https://docs.amplify.aws/lib/graphqlapi/mutate-data/q/platform/js/]
+API (GRAPHQL)[https://docs.amplify.aws/lib/graphqlapi/mutate-data/q/platform/js/]
 
 
 ## Amplify Studio
