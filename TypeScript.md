@@ -26,7 +26,7 @@ type car is now { make:string }
 Error: Type 'void[]' is not assignable to type 'ReactNode'
 
 {Items.map(item => {
-    return (          <-- make sure to return with ()
+    return (          <-- return with ()
     
     )
 })}
@@ -36,7 +36,7 @@ Error: Argument of type '() => () => ...' is not assignable to parameter of type
 
 useEffect(()=>{
     ...
-    return () => {....}   <------ make sure to wrap around {} 
+    return () => {....}   <------ wrap around {} 
 });
 ```
 
