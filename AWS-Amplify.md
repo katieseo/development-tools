@@ -28,7 +28,7 @@ enum petEnum {
   fish
 }
 ```
-Authorization rules[https://docs.amplify.aws/cli/graphql/authorization-rules/]
+Authorization rules [https://docs.amplify.aws/cli/graphql/authorization-rules/]
 ```
 amplify push
 
