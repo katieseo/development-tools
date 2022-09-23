@@ -125,7 +125,7 @@ router.delete("/delete/:id", async (req, res) => {
 module.exports = router;
 ```
 
-#### model/model.js
+#### models/model.js
 ```js
 const mongoose = require("mongoose");
 const dataSchema = new mongoose.Schema({
