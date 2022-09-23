@@ -144,6 +144,18 @@ module.exports = mongoose.model("Data", dataSchema);
 
 #### Test with Postman and check the MongoDB Compass app
 
+Post | localhost:3000/api/post
+
+Body
+select) raw, JSON
+
+{
+    "name": "my name",
+    "age": 20
+}
+
+Send
+
 ---
 ---
 ---
