@@ -148,6 +148,33 @@ module.exports = mongoose.model("Data", dataSchema);
 ---
 ---
 
+## HTTP Status Codes
+
+```
+* Success
+200 OK
+201 Created
+204 No Content
+
+* Redirection
+304 Not Modified (cashing information)
+
+* Client Error
+400 Bad Request
+401 Unauthorized
+403 Forbidden
+404 Not Found
+409 Conflict
+
+* Server Error
+500 Internal Server Error
+
+```
+
+---
+---
+---
+
 ## Node Rest API using Express and SQLite
 
 ```js
