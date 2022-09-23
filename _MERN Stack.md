@@ -26,3 +26,8 @@ coding
 4. Create a database user - username/pw
 5. Add my current IP Address
 6. Finish and Close
+7. Collection > Add My Own Data (Database name: mernapp, Collection name: skills)
+
+1. Overview > Connect
+2. connect with MongoDB Compass (Url - update password, appname test>mernapp)
+3. connect application, application code - copy and add in .env (MONGO_URI)
