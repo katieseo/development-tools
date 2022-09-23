@@ -144,6 +144,9 @@ module.exports = mongoose.model("Data", dataSchema);
 
 #### Test with Postman and check the MongoDB Compass app
 
+---
+---
+---
 
 ## Node Rest API using Express and SQLite
 
