@@ -34,7 +34,7 @@ npm i jsonwebtoken
 
 #### JWT (Json Web Tokens) / bcryptjs
 
-### Postman Test: login > copy token > 
+#### Postman Test: login > copy token > 
   - Header - Key: Authroization, value: paste
   OR - Authorization - choose Bearer Token and paste
   
