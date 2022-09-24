@@ -3,7 +3,9 @@
 npm i express dotenv mongoose colors
 npm i -D nodemon
 npm i express-async-handler
-npm i jsonwebtoken bcryptjs
+
+npm i bcryptjs
+npm i jsonwebtoken
 ```
 
 #### packages.json:
@@ -13,12 +15,7 @@ npm i jsonwebtoken bcryptjs
   "server": "nodemon backend/server.js"
 }
 ```
-#### Setup controller and router
-```
-coding
-
-```
-
+#### Setup controller and router for skills
 
 #### MongoDB
 1. Create a Project
@@ -32,3 +29,16 @@ coding
 1. Overview > Connect
 2. connect with MongoDB Compass (Url - update password, appname test>mernapp)
 3. connect application, application code - copy and add in .env (MONGO_URI)
+
+#### Setup controller and router for users
+
+#### JWT (Json Web Tokens) / bcryptjs
+
+### Postman Test: login > copy token > 
+  - Header - Key: Authroization, value: paste
+  OR - Authorization - choose Bearer Token and paste
+  
+  Post skill with text, Bearer Token added
+
+
+
