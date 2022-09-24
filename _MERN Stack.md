@@ -40,6 +40,26 @@ npm i jsonwebtoken
   
   Post skill with text, Bearer Token added
 
+#### scripts
+npm i -D concurrently
+```
+"scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+
+```
+
+#### frontend
+npm install
+---template redux
+react-router-dom
+axios
+react-toastfy
+react-icons
+
 ---
 ---
 ---
