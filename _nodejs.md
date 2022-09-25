@@ -33,3 +33,24 @@ let emailData = {
 
 send(emailData);
 ```
+
+## Express
+```js
+const express = require("express");
+const app = express();
+
+app.listen(8000, () => console.log("wow"));
+
+app.get("/", (req, res) => {
+  res.send("Hello!");
+});
+
+//ejs + render
+app.set("views", __dirname + "/views");
+app.set("view engine", "ejs");
+app.engine("html", require("ejs").renderFile);
+
+app.get("/about", (req, res) => {
+  res.render("about.html");
+});
+```
