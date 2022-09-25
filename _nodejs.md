@@ -1,6 +1,6 @@
 ## Email
 
-```
+```js
 //nodemailer + mailtrap
 const nodemailer = require("nodemailer");
 
