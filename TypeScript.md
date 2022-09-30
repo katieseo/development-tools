@@ -23,7 +23,7 @@ type car is now { make:string }
 ```
 #### Experienced Errors
 
-* need to define the return type of your hook
+* need to define the return type of the hook
 * () => [boolean, () => void]
 ```js
 const useToggleArr: () => [boolean, () => void] = () => {
