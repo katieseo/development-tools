@@ -22,6 +22,20 @@ type car = { make: string; }
 type car is now { make:string }
 ```
 #### Experienced Errors
+
+* need to define the return type of your hook
+* () => [boolean, () => void]
+```js
+const useToggleArr: () => [boolean, () => void] = () => {
+  const [status, setStatus] = useState(false);
+  const toggleStatus = () => {
+    setStatus((prevState) => !prevState);
+  };
+
+  return [status, toggleStatus];
+};
+```
+
 ```js
 Error: Type 'void[]' is not assignable to type 'ReactNode'
 
