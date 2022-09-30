@@ -36,6 +36,7 @@ const useToggleArr: () => [boolean, () => void] = () => {
 };
 ```
 
+* sometime simple wrapping (), {} fix the error
 ```js
 Error: Type 'void[]' is not assignable to type 'ReactNode'
 
