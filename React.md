@@ -21,6 +21,12 @@ export const TimeAgo = ({ timestamp }) => {
 }
 ```
 
+sorting by date
+
+```js
+const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date))
+```
+
 
 #### inline style best practices *
 
