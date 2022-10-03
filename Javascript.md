@@ -131,14 +131,3 @@ event.target.style.visibility = 'hidden';
 
 
 
-## React
-
-#### React.js inline style best practices *
-https://stackoverflow.com/questions/26882177/react-js-inline-style-best-practices
-
-HTML Case:
-div style="background-color: red; color: white"
-
-JSX Case:
-div style={{ backgroundColor: 'red', color: 'white' }}
-
