@@ -191,3 +191,8 @@ export default function Form() {
     )
 }
 ```
+
+## Redux
+
+https://codesandbox.io/s/redux-essentials-bi6j7y
+
