@@ -1,6 +1,6 @@
 #### Date
 
-TimeAgo.js
+TimeAgo.js [https://date-fns.org/]
 
 ```js
 import { parseISO, formatDistanceToNow } from 'date-fns'
