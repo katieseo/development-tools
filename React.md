@@ -1,4 +1,4 @@
-#### Date
+## Date
 
 TimeAgo.js [https://date-fns.org/]
 
@@ -44,6 +44,7 @@ sorting by date
 const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date))
 ```
 
+## Styling
 #### inline style best practices *
 
 https://stackoverflow.com/questions/26882177/react-js-inline-style-best-practices
@@ -57,7 +58,7 @@ div style={{ backgroundColor: 'red', color: 'white' }}
 ```
 
 
-#### Form
+## Form
 
 ```js
 export default function Form() {
