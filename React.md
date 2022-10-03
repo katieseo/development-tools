@@ -21,12 +21,28 @@ export const TimeAgo = ({ timestamp }) => {
 }
 ```
 
+subtract minutes from the current date/time
+
+```js
+import { sub } from 'date-fns'
+
+{
+    // omitted fields
+    content: 'Hello!',
+    date: sub(new Date(), { minutes: 10 }).toISOString()
+  },
+  {
+    // omitted fields
+    content: 'More text',
+    date: sub(new Date(), { minutes: 5 }).toISOString()
+  }
+```
+
 sorting by date
 
 ```js
 const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date))
 ```
-
 
 #### inline style best practices *
 
