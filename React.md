@@ -26,12 +26,13 @@ export const TimeAgo = ({ timestamp }) => {
 
 https://stackoverflow.com/questions/26882177/react-js-inline-style-best-practices
 
+```js
 HTML Case:
 div style="background-color: red; color: white"
 
 JSX Case:
 div style={{ backgroundColor: 'red', color: 'white' }}
-
+```
 
 
 #### Form
