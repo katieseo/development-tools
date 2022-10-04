@@ -47,6 +47,8 @@
 
 - [TinyPNG](https://tinypng.com/)
 - [Find Icons](http://findicons.com/)
+- pexels.com
+- unsplash.com
 
 
 ##### Frameworks & Libraries
