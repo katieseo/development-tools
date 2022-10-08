@@ -1,6 +1,6 @@
 ## Setting up
 
-1. create expo
+#### 1. create expo
 https://reactnative.dev/docs/environment-setup
 
 ```
@@ -8,9 +8,9 @@ npx create-expo-app AwesomeProject
 cd AwesomeProject
 ```
 
-2. Download Expo on the phone
+#### 2. Download Expo on the phone
 
-3. npm start 
+#### 3. npm start 
     a. QR Code to run on the phone
 
     b. simulator on the computer
@@ -21,7 +21,7 @@ cd AwesomeProject
         
       - Android Studio: more actions click - Virtual Device Manager > Play Button (press 'a' on the terminal)
 
-4. components: View, Text, Button, TextInput, 
+#### 4. components: View, ScrollView, Text, Button, TextInput, 
 ```
 <Button
   onPress={onPressLearnMore}
@@ -56,7 +56,7 @@ const UselessTextInput = () => {
 };
 ```
 
-5. Styles
+#### 5. Styles
 
 * borderRadius is not working on Text component on iOS > should wrap in View and add radius on View
 * style color on the component, parent color wouldn't change the child. styles don't cascade
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 
 ```
 
-6. Interaction
+#### 6. Interaction
 
 onChangeText, onSubmitEditing, onFocus
 
