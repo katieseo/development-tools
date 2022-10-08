@@ -33,8 +33,6 @@ cd AwesomeProject
 <Image source={require('@expo/snack-static/react-native-logo.png')} />
 ```
 ```
-onChangeText, onSubmitEditing, onFocus
-
 const UselessTextInput = () => {
   const [text, onChangeText] = React.useState("Useless Text");
   const [number, onChangeNumber] = React.useState(null);
@@ -59,6 +57,10 @@ const UselessTextInput = () => {
 ```
 
 5. Styles
+
+* borderRadius is not working on Text component on iOS > should wrap in View and add radius on View
+* style color on the component, parent color wouldn't change the child. styles don't cascade
+
 ```
 container: { flex: 1 },   //takeup all height
 ```
@@ -78,3 +80,20 @@ const styles = StyleSheet.create({
 });
 
 ```
+
+6. Interaction
+
+onChangeText, onSubmitEditing, onFocus
+
+```
+<Text onChangeText={inputHandler}>Text</Text>
+
+function inputHandler(enteredText) {
+    console.log(enteredText)
+}
+```
+
+6. APIs
+
+
+
