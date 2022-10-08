@@ -55,6 +55,12 @@ const UselessTextInput = () => {
   );
 };
 ```
+```
+<View style={styles.todoList}>. // set height (flex: 3)
+    <ScrollView>        
+    </ScrollView>
+</View>
+```
 
 #### 5. Styles
 
