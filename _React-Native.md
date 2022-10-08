@@ -21,7 +21,7 @@ cd AwesomeProject
         
       - Android Studio: more actions click - Virtual Device Manager > Play Button (press 'a' on the terminal)
 
-#### 4. components: View, FlatList, ScrollView, Text, Button, TextInput, 
+#### 4. components: View, Text, Button, TextInput / ScrollView, FlatList, Item, 
 ```
 <Button
   onPress={onPressLearnMore}
