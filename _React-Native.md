@@ -3,7 +3,7 @@
 #### 1. create expo
 https://reactnative.dev/docs/environment-setup
 
-```
+```js
 npx create-expo-app AwesomeProject
 cd AwesomeProject
 ```
@@ -23,17 +23,18 @@ cd AwesomeProject
 
 #### 4. components: View, Text, Button, TextInput / ScrollView, FlatList, Item / 
 ####     Pressable, Modal
-```
+```js
 <Button
   onPress={onPressLearnMore}
   title="Learn More"
   color="#841584"
   accessibilityLabel="Learn more about this purple button"
 />
-
+```
+```js
 <Image source={require('@expo/snack-static/react-native-logo.png')} />
 ```
-```
+```js
 const UselessTextInput = () => {
   const [text, onChangeText] = React.useState("Useless Text");
   const [number, onChangeNumber] = React.useState(null);
@@ -56,13 +57,13 @@ const UselessTextInput = () => {
   );
 };
 ```
-```
+```js
 <View style={styles.todoList}>. // set height (flex: 3)
     <ScrollView>        
     </ScrollView>
 </View>
 ```
-```
+```js
 FlatList: lazyloading
 
 const DATA = [
@@ -102,12 +103,12 @@ const App = () => {
   );
 }
 ```
-```
+```js
 <Pressable onPress={onPressFunction}>
   <Text>I'm pressable!</Text>
 </Pressable>
 ```
-```
+```js
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
@@ -195,13 +196,13 @@ export default App;
 * borderRadius is not working on Text component on iOS > should wrap in View and add radius on View
 * style color on the component, parent color wouldn't change the child. styles don't cascade
 
-```
+```js
 container: { flex: 1 },   //takeup all height
 ```
-```
+```js
 <Text style={{margin: 20, borderWidth: 2, borderColor: 'red', paddingHorizontal: 10, padding}}>Hello</Text>
 ```
-```
+```js
 <View style={styles.container}></View>
 
 const styles = StyleSheet.create({
@@ -219,7 +220,7 @@ const styles = StyleSheet.create({
 
 onChangeText, onSubmitEditing, onFocus
 
-```
+```js
 <Text onChangeText={inputHandler}>Text</Text>
 
 function inputHandler(enteredText) {
@@ -227,7 +228,7 @@ function inputHandler(enteredText) {
 }
 ```
 android_ripple, style press(iOS) - click effect
-```
+```js
 <Pressable
     android_ripple = {{ color: '#ddd' }}
     style={(pressData) => pressData.pressed && styles.pressedItem}
@@ -240,7 +241,7 @@ styles...
         opacity: 0.5
     }
 
-```
+```js
 6. APIs
 
 
