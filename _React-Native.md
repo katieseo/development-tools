@@ -33,6 +33,8 @@ cd AwesomeProject
 ```
 ```js
 <Image source={require('@expo/snack-static/react-native-logo.png')} />
+
+<Image source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}} />
 ```
 ```js
 const UselessTextInput = () => {
