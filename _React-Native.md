@@ -21,7 +21,7 @@ cd AwesomeProject
         
       - Android Studio: more actions click - Virtual Device Manager > Play Button (press 'a' on the terminal)
 
-#### 4. components: View, Text, Button, TextInput / ScrollView, FlatList, Item, 
+#### 4. components: View, Text, Button, TextInput / ScrollView, FlatList, Item / Pressable
 ```
 <Button
   onPress={onPressLearnMore}
@@ -100,6 +100,11 @@ const App = () => {
     </SafeAreaView>
   );
 }
+```
+```
+<Pressable onPress={onPressFunction}>
+  <Text>I'm pressable!</Text>
+</Pressable>
 ```
 
 #### 5. Styles
