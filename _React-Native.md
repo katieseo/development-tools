@@ -194,7 +194,21 @@ export default App;
 ```
 
 #### 5. Styles
+Global background
+app.json
+```js
+    "backgroundColor": "#ccc"
+```
+status bar
+```js
+import { StatusBar } from 'expo-status-bar';
 
+<>
+    <StatusBar style='light'/>
+    <View></View>
+</>
+
+```
 * borderRadius is not working on Text component on iOS > should wrap in View and add radius on View
 * style color on the component, parent color wouldn't change the child. styles don't cascade
 
