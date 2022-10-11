@@ -104,6 +104,7 @@ Security Quickstart
 2. connect with MongoDB Compass (Url - update password, appname test>mern)
 3. connect application, application code - copy and add in .env (MONGO_URI)
 
+
 #### config/db.js
 ```js
 const mongoose = require("mongoose");
@@ -120,6 +121,7 @@ const connectDB = async () => {
 
 module.exports = connectDB;
 ```
+
 #### models/goalModel.js
 
 #### add goalModel into controller
