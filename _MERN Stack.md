@@ -134,9 +134,10 @@ module.exports = connectDB;
 
 #### authMiddleware
 
-#### Postman Test: login > copy token > 
-     - Header - Key: Authroization, value: Bearer + token
-  OR - Authorization - choose Bearer Token and paste
+#### Postman Test: login > copy token >
+- Header - Key: Authroization, value: Bearer + token
+OR 
+- Authorization - choose Bearer Token and paste
 
 #### protect goalRoutes
 Post goal with text and should add Bearer Token
