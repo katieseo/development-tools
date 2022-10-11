@@ -1,5 +1,13 @@
 https://github.com/bradtraversy/mern-tutorial
 
+#### git init
+entry point: server.js
+license: MIT
+
+#### .gitignore
+node_modules
+.env
+
 #### dependencies:
 ```js
 npm i express dotenv mongoose colors
@@ -17,30 +25,121 @@ npm i jsonwebtoken
   "server": "nodemon backend/server.js"
 }
 ```
-#### Setup controller and router for skills
+
+#### git init
+git add .
+git commit -m "initial commit"
+
+#### .env
+NODE_ENV = development
+PORT = 8000
+
+#### server.js
+```js
+const express = require("express");
+const dotenv = require("dotenv").config();
+const port = process.env.PORT || 5000;
+
+const app = express();
+
+// for post, put (Body: add text in x-www-form-urlencoded fields)
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use("/api/goals", require("./routes/goalRoutes"));
+
+// move these into goalRoutes.js
+app.get("/api/goals", (req, res) => {
+  //res.send("get goals");
+  res.json({ message: "Get goals" });
+});
+
+app.put("/api/goals/:id", (req, res) => {
+  res.json({ message: `update ${req.params.id}` });
+});
+
+app.listen(port, () => {
+  console.log(port);
+});
+
+```
+
+#### Setup router, controller for goals, errorMiddleware
+```js
+goalRoutes.js
+
+const express = require("express");
+const router = express.Router();
+const {
+  getGoals,
+  setGoal,
+  updateGoal,
+  deleteGoal,
+} = require("../controllers/goalController");
+
+router.route("/").get(getGoals).post(setGoal);
+router.route("/:id").put(updateGoal).delete(deleteGoal);
+
+// router.get("/", getGoals);
+// router.post("/", setGoal);
+// router.put("/:id", updateGoal);
+// router.delete("/:id", deleteGoal);
+
+module.exports = router;
+```
 
 #### MongoDB
 1. Create a Project
 2. Build a database (shared)
-3. Cluster Name: khsCluster
+3. Build a Database (Cluster Name: blaCluster)
+---
+Security Quickstart
 4. Create a database user - username/pw
 5. Add my current IP Address
 6. Finish and Close
-7. Collection > Add My Own Data (Database name: mernapp, Collection name: skills)
+---
+7. Browse Collections > Add My Own Data (Database name: mern, Collection name: goals)
 
 1. Overview > Connect
-2. connect with MongoDB Compass (Url - update password, appname test>mernapp)
+2. connect with MongoDB Compass (Url - update password, appname test>mern)
 3. connect application, application code - copy and add in .env (MONGO_URI)
 
-#### Setup controller and router for users
+#### config/db.js
+```js
+const mongoose = require("mongoose");
+
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    console.log(`MongoDB connected ${conn.connection.host}`.cyan.underline);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
+
+module.exports = connectDB;
+```
+#### models/goalModel.js
+
+#### add goalModel into controller
+
+- - - - - - - - - -
+
+#### Create userModel, controller and router for users
 
 #### JWT (Json Web Tokens) / bcryptjs
 
+#### authMiddleware
+
 #### Postman Test: login > copy token > 
-  - Header - Key: Authroization, value: paste
+     - Header - Key: Authroization, value: Bearer + token
   OR - Authorization - choose Bearer Token and paste
-  
-  Post skill with text, Bearer Token added
+
+#### protect goalRoutes
+Post goal with text and should add Bearer Token
+
+- - - - - - - - - -
 
 #### scripts
 npm i -D concurrently
