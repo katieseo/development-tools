@@ -164,6 +164,14 @@ axios
 react-toastify
 react-icons
 
+* frontend package.json add proxy
+```
+"name": "frontend",
+"version": "0.1.0",
+"proxy": "http://localhost:5000",
+```
+
+
 ---
 ---
 ---
