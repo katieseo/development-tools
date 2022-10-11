@@ -161,7 +161,7 @@ npm install
 ---template redux
 react-router-dom
 axios
-react-toastfy
+react-toastify
 react-icons
 
 ---
