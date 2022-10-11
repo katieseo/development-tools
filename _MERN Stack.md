@@ -92,12 +92,12 @@ module.exports = router;
 1. Create a Project
 2. Build a database (shared)
 3. Build a Database (Cluster Name: blaCluster)
----
+
 Security Quickstart
 4. Create a database user - username/pw
 5. Add my current IP Address
 6. Finish and Close
----
+
 7. Browse Collections > Add My Own Data (Database name: mern, Collection name: goals)
 
 1. Overview > Connect
