@@ -38,6 +38,7 @@
 
 ##### Fonts
 
+- https://royalfig.github.io/fluid-typography-calculator/
 - [Google Fonts](https://www.google.com/fonts)
 - [Webfont Generator](http://www.fontsquirrel.com/tools/webfont-generator)
 - [IcoMoon](https://icomoon.io/)
