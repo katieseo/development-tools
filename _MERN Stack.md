@@ -1,3 +1,35 @@
+Full Stack Mern Social Media App
+
+client
+```
+copy package.json
+npm install --legacy-peer-deps
+
+```
+
+server
+```
+npm i body-parser cors express mongoose nodemon
+
+
+package.json
+...
+"main": "index.js",
+"type": "module",   <--- add to able to import
+
+"scripts": {
+    "start": "nodemon index.js"
+},
+```
+
+*tip: 5000 already in use 
+sudo pkill node
+
+
+
+---
+---
+
 https://github.com/bradtraversy/mern-tutorial
 
 #### git init
