@@ -1,3 +1,42 @@
+https://developer.wordpress.org/themes/basics/main-stylesheet-style-css/
+https://developer.wordpress.org/themes/block-themes/creating-new-themes-using-the-site-editor/
+https://developer.wordpress.org/reference/functions/wp_enqueue_style/
+
+1. create files
+```
+assets
+ - css
+      > blocks.css
+ - img
+ - fonts
+parts
+   > footer.html, header.html
+templates
+   > 404.html, archive.html, index.html, page.html, search.html, single.html
+   
+functions.php
+index.php
+screenshot.png
+styles.css
+theme.json
+```
+
+2. modify styles.css , funcntions.php > upload theme and activate
+3. pages > create 'Home' page
+3. settings > reading settings > select 'a static page', select Homepage: 'Home'
+4. Permalinks > select Postname or Custom Structure /blog/%postname%/
+
+5.Apperance > Editor
+   - template - page - add 'Post Content' block
+   - pages > Home > add heading h1-h6, and button
+   
+6. go to theme.json file (Tools > Theme File Editor) and edit
+
+---
+---
+---
+
+
 ## Custom
 
 - OceanWP
@@ -46,7 +85,4 @@ http://localhost/wordpress/wp-admin/
 
 Custom Post Type UI 
 ACF
-
-Theme: OceanWP, Ocean Extra, Elementor
-Backup: all-in-one wp migration
 
