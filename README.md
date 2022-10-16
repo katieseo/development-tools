@@ -1,24 +1,5 @@
 ### Frontend Tools
 
-##### package installation
-
-- npx create-next-app@latest --ts (next.js ts)
-- npx create-react-app ./ --template redux-typescript (react toolkit+ts)
-- npx create-react-app ./ --template typescript (react ts)
-- npm install react-router-dom
-- npm install axios
-
-
-- npm install framer-motion
-- npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
-- npm install formik --save
-- npm install -S yup
-- npm install react-datepicker --save
-- npm install --save @types/react-datepicker
-- [React Slick](https://react-slick.neostack.com/docs/get-started) npm install react-slick --save
-
-| Heroicons
-
 ##### Compatibility
 
 - [Can I Use](http://caniuse.com/)
@@ -108,6 +89,8 @@
 
 - Start/end of line: CMD + left/right arrow key
 
+- ctrl+space :: for import component automatically
+
 ##### Podcast
 
 - [Syntax](https://syntax.fm/)
@@ -124,3 +107,22 @@
 
 - https://github.com/alan2207/bulletproof-react
 - https://www.toptal.com/utilities-tools
+
+##### package installation
+
+- npx create-next-app@latest --ts (next.js ts)
+- npx create-react-app ./ --template redux-typescript (react toolkit+ts)
+- npx create-react-app ./ --template typescript (react ts)
+- npm install react-router-dom
+- npm install axios
+
+
+- npm install framer-motion
+- npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+- npm install formik --save
+- npm install -S yup
+- npm install react-datepicker --save
+- npm install --save @types/react-datepicker
+- [React Slick](https://react-slick.neostack.com/docs/get-started) npm install react-slick --save
+
+| Heroicons
