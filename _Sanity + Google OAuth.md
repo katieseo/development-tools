@@ -61,9 +61,10 @@ npm i jwt-decode
 https://developers.google.com/identity/gsi/web/reference/js-reference
 
 ```js
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
 import { client } from "../client";
+import jwt_decode from "jwt-decode";
 
 const navigate = useNavigate();
 
