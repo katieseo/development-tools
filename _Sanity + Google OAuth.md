@@ -61,6 +61,12 @@ npm i jwt-decode
 https://developers.google.com/identity/gsi/web/reference/js-reference
 
 ```
+import { useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { client } from "../client";
+
+const navigate = useNavigate();
+
 const handleCredentialResponse = (response) => {
   // decode Encoded JWT ID token
   let userObejct = jwt_decode(response.credential);
