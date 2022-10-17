@@ -6,7 +6,7 @@
 3. sanity start
 
 .eslintrc
-```
+```js
 {
   "extends": "@sanity/eslint-config-studio",
   "presets": ["@babel/preset-env"]
@@ -23,7 +23,7 @@ APIs and Services > Credentials > Create Project
 OAuth consent screen > external > add info(no logo), add test user
 
 Credentials > Create Credentials > OAuth Client ID > web application > 
-```
+```js
 Authorised JavaScript origins: 
 http://localhost
 http://localhost:3000
@@ -48,7 +48,7 @@ src > client.js
 
 1.
 public/index.html > add script
-```
+```js
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 ```
 https://developers.google.com/identity/gsi/web/guides/client-library
@@ -60,7 +60,7 @@ npm i jwt-decode
 
 https://developers.google.com/identity/gsi/web/reference/js-reference
 
-```
+```js
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { client } from "../client";
