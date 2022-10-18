@@ -47,6 +47,10 @@ src > client.js
 1. backend folder terminal : `sanity manage` to get projectId, token (api>token>Editor)
 2. also add http://localhost:3000 check credential to Cors Origin
 
+https://www.sanity.io/docs/how-queries-work
+
+
+
 // google Oauth
 
 1.
