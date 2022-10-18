@@ -1,6 +1,9 @@
 https://developer.wordpress.org/themes/basics/main-stylesheet-style-css/
+
 https://developer.wordpress.org/themes/block-themes/creating-new-themes-using-the-site-editor/
+
 https://developer.wordpress.org/reference/functions/wp_enqueue_style/
+
 
 1. create files
 ```
@@ -45,6 +48,10 @@ theme.json
 - All-in-one WP migration for backup
 
 ## Locally install
+
+
+#### DevKinsta (Docker)
+
 
 #### XAMPP
 https://www.apachefriends.org/download.html
