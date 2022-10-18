@@ -5,7 +5,7 @@ https://developer.wordpress.org/themes/block-themes/creating-new-themes-using-th
 https://developer.wordpress.org/reference/functions/wp_enqueue_style/
 
 
-Plugin: Gutenburg?
+Plugin: Elementor Website Builder, Gutenburg
 
 1. create files
 ```
