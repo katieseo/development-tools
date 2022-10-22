@@ -70,6 +70,8 @@
 - Prettier — Code formatter
 - ES7 React/Redux/GraphQL/React-Native snippets
 
+- tailwind: Tailwind CSS IntelliSense , Inline fold
+
 - Wallaby.js
 - Better Comments
 - Turbo Console Log
@@ -111,19 +113,13 @@
 
 ##### package installation
 
-- npx create-next-app@latest --ts (next.js ts)
-- npx create-react-app ./ --template redux-typescript (react toolkit+ts)
-- npx create-react-app ./ --template typescript (react ts)
-- npm install react-router-dom
-- npm install axios
+- react-router-dom
+- axios
 
-
-- npm install framer-motion
+- framer-motion
 - npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
-- npm install formik --save
-- npm install -S yup
-- npm install react-datepicker --save
-- npm install --save @types/react-datepicker
-- [React Slick](https://react-slick.neostack.com/docs/get-started) npm install react-slick --save
+- react-hook-form , formik , yup
+- react-datepicker
+- react-slick
 
 | Heroicons
