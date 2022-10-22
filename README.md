@@ -39,12 +39,6 @@
 - [Google Hosted Libraries](https://developers.google.com/speed/libraries)
 
 
-##### Plugins
-
-- [Magnific Popup](http://dimsemenov.com/plugins/magnific-popup/)
-- [slick slider](http://kenwheeler.github.io/slick/)
-
-
 ##### Debugging Tools
 
 - [Chrome DevTools](https://developers.google.com/chrome-developer-tools/)
@@ -123,3 +117,8 @@
 - react-slick
 
 | Heroicons
+
+##### Plugins
+
+- [Magnific Popup](http://dimsemenov.com/plugins/magnific-popup/)
+- [slick slider](http://kenwheeler.github.io/slick/)
