@@ -120,6 +120,42 @@ export default function handler(req, res) {
 ```
 http://localhost:3001/api/articles/1
 
+*Using the API in the application
+
+config/index.js
+
+```js
+const dev = process.env.NODE_ENV !== 'production'
+
+export const server = dev ? 'http://localhost:3000' : 'https://mywebsite.com'
+```
+
+pages/index.js
+
+```js
+import { server } from "../config";
+
+export default function Home({ articles }) {
+  return (
+    <div className="mx-auto max-w-7xl">
+      ....
+    </div>
+  );
+}
+
+export const getStaticProps = async () => {
+  const response = await fetch(`${server}/api/articles`);
+  const articles = await response.json();
+
+  return {
+    props: {
+      articles,
+    },
+  };
+};
+```
+
+
 
 #### generating static sites
 
