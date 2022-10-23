@@ -1,5 +1,5 @@
 globals.css
-```
+```js
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
