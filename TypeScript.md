@@ -201,6 +201,15 @@ const [user, setUser] = useState<AuthUser>({} as AuthUser);
 
 ```
 
+set useState component prop
+```
+type Props = {
+  setState: React.Dispatch<React.SetStateAction<string>>;
+};
+
+```
+
+
 #### useRef
 ```javascript
 const inputRef = useRef<HTMLInputElement>(null)
