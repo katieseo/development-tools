@@ -30,5 +30,5 @@ button.component.html
 ```
 header.component.html
 ```js
-<app-button color="green" text="click" (btnClick)="toggle"></app-button>   <--------- *
+<app-button color="green" text="click" (btnClick)="toggle()"></app-button>   <--------- *
 ```
