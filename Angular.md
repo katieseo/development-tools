@@ -1,3 +1,5 @@
+#### button component
+
 button.component.ts
 ```js
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
@@ -31,4 +33,11 @@ button.component.html
 header.component.html
 ```js
 <app-button color="green" text="click" (btnClick)="toggle()"></app-button>   <--------- *
+```
+
+#### *nfFor
+```js
+<tr *ngFor="let hero of heroes">
+  <td>{{hero.name}}</td>
+</tr>
 ```
