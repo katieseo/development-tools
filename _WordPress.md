@@ -72,7 +72,8 @@ localhost/phpmyadmin
 
 5. Download WordPress > unzip > move to xampp "Open application folder" > htdocs folder (change the folder name to projectname)
 
-6. http://localhost/projectname > install 
+6. http://localhost/projectname > install
+- database: "ProjectName"
 - username: root, password empty
 - wp-config.php (modify wp-config-sample.php)
 
