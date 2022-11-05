@@ -68,13 +68,13 @@ https://www.apachefriends.org/download.html
 3. phpMyAdmin
 localhost/phpmyadmin
 
-4. Databases tab > "WordPress" Create
+4. Databases tab > "ProjectName" Create
 
 5. Download WordPress > unzip > move to xampp "Open application folder" > htdocs folder (change the folder name to projectname)
 
 6. http://localhost/projectname > install 
 - username: root, password empty
-- copy following text to wordpress/wp-config-sample.php > change name to wp-config.php > run install
+- wp-config.php (modify wp-config-sample.php)
 
 7. custom theme folder: wp-content/themes
 
