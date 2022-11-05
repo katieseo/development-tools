@@ -76,6 +76,8 @@ localhost/phpmyadmin
 - username: root, password empty
 - copy following text to wordpress/wp-config-sample.php > change name to wp-config.php > run install
 
+7. custom theme folder: wp-content/themes
+
 
 ## Check List
 http://localhost/wordpress/wp-admin/
