@@ -93,8 +93,10 @@ http://localhost/wordpress/wp-admin/
 5. custom-logo: go to theme and select theme, [customize] > site identity > Add Logo, Select Icon > Publish
 
 
-## Custom Fields
+## Plugins
 
 Custom Post Type UI 
 ACF
+
+Sidecart for Woocommerce by xootix. (login pop too)
 
